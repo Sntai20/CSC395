@@ -10,39 +10,16 @@ namespace M1P3
     {
         public static void Main(string[] args)
         {
-            // Ask the user to enter a positive integer b.
-            Console.Write("Please enter a positive number: ");
+            // Ask the user to enter a string (e.g. "Welcome to SMU!"
+            Console.Write("Please enter a string: ");
 
-            ReadFromFile();
-            //// Store user input in a variable.
+            // Store user input in a variable.
             //string userInput = Console.ReadLine();
-            ////string userInput = "b";
-            //int result = 0;
+            string userInput = "Welcome to Saint Martin’s U!";
+            ReadFromFile();
+            Console.WriteLine(CountVowels(userInput));
 
-            //// Validate user input can be parsed and store value in result variable.
-            //// (throw an exception if the input is not positive).
-            //// Positive number could not be parsed.
-            //try
-            //{
-            //    result = int.Parse(userInput);
-            //}
-            //catch (FormatException)
-            //{
-            //    Console.WriteLine($"Positive number could not be parsed.'{userInput}'");
-            //}
-
-            //// Then output whether or not the number b is divisible by 3.
-            //if (result > 0)
-            //{
-            //    Console.WriteLine(result / 3);
-            //}
-
-            //else
-            //{
-            //    throw new FormatException($"Number could not be divided by 3.'{userInput}'");
-            //}
-
-            // Keep the console window open in debug mode.
+          
             Console.WriteLine("Press any key to exit.");
             System.Console.ReadKey();
         }
@@ -61,6 +38,40 @@ namespace M1P3
                 // Use a tab to indent each line of the file.
                 Console.WriteLine("\t" + line);
             }
+        }
+
+        public static int CountVowels(string userInput)
+        {
+            // Convert userInput to lowercase.
+            string lowerCase = userInput.ToLower();
+            //Console.WriteLine(userInput.ToLower());
+
+            // Covert to string to array and store in arr variable.
+            char[] arr = lowerCase.ToCharArray();
+            //char ch = arr[];
+            //foreach (char c in arr)
+            //Console.WriteLine(c);
+
+            // Find the vowels in userInput
+            string vowelString = "aeiouy";
+            char[] vowels = vowelString.ToCharArray();
+
+            int counter = 0;
+            Console.WriteLine("\nSearching for vowels in this string");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                //Console.WriteLine("Array = {0}", arr[i]);
+                for (int j = 0; j < vowels.Length; j++)
+                {
+                    // Evaluate if the userInput contains vowels.
+                    if (arr[i] == vowels[j])
+                    {
+                        // Store the total number of vowels.
+                        counter = counter + 1;
+                    }
+                }
+            }
+            return counter;
         }
     }
 }

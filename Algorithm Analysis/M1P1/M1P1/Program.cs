@@ -1,4 +1,4 @@
-﻿// Ask the user to enter a string (e.g. "Welcome to SMU!"
+﻿// Ask the user to enter a string (e.g. "Welcome to Saint Martin’s U!"
 // The program should count and display the total number of vowels (A,E,I,O,U)
 // Count both uppercase and lowercase vowels in the given input. 
 // The ouput should be 9 in the example above.
@@ -15,9 +15,13 @@ namespace M1P1
 
             // Store user input in a variable.
             //string userInput = Console.ReadLine();
-            string userInput = "Welcome to a Saint Martin's University!";
+            string userInput = "Welcome to Saint Martin’s U!";
 
+            Console.WriteLine(CountVowels(userInput));
+        }
 
+        public static int CountVowels(string userInput)
+        {
             // Convert userInput to lowercase.
             string lowerCase = userInput.ToLower();
             //Console.WriteLine(userInput.ToLower());
@@ -47,7 +51,7 @@ namespace M1P1
                     }
                 }
             }
-            Console.WriteLine("{0} vowels counted in the string", counter);
+            return counter;
         }
     }
 }
