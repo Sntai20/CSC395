@@ -1,0 +1,7 @@
+C:\Users\Razvan\source\repos\CSC395 Module2 Sorting\CSC395 Module2 Sorting\bin\Debug\CSC395 Module2 Sorting.exe.config
+C:\Users\Razvan\source\repos\CSC395 Module2 Sorting\CSC395 Module2 Sorting\bin\Debug\CSC395 Module2 Sorting.exe
+C:\Users\Razvan\source\repos\CSC395 Module2 Sorting\CSC395 Module2 Sorting\bin\Debug\CSC395 Module2 Sorting.pdb
+C:\Users\Razvan\source\repos\CSC395 Module2 Sorting\CSC395 Module2 Sorting\obj\Debug\CSC395 Module2 Sorting.csprojAssemblyReference.cache
+C:\Users\Razvan\source\repos\CSC395 Module2 Sorting\CSC395 Module2 Sorting\obj\Debug\CSC395 Module2 Sorting.csproj.CoreCompileInputs.cache
+C:\Users\Razvan\source\repos\CSC395 Module2 Sorting\CSC395 Module2 Sorting\obj\Debug\CSC395 Module2 Sorting.exe
+C:\Users\Razvan\source\repos\CSC395 Module2 Sorting\CSC395 Module2 Sorting\obj\Debug\CSC395 Module2 Sorting.pdb

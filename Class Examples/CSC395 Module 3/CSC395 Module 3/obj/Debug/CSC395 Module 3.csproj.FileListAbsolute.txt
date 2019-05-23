@@ -1,0 +1,7 @@
+C:\Users\Razvan\source\repos\CSC395 Module 3\CSC395 Module 3\bin\Debug\CSC395 Module 3.exe.config
+C:\Users\Razvan\source\repos\CSC395 Module 3\CSC395 Module 3\bin\Debug\CSC395 Module 3.exe
+C:\Users\Razvan\source\repos\CSC395 Module 3\CSC395 Module 3\bin\Debug\CSC395 Module 3.pdb
+C:\Users\Razvan\source\repos\CSC395 Module 3\CSC395 Module 3\obj\Debug\CSC395 Module 3.csprojAssemblyReference.cache
+C:\Users\Razvan\source\repos\CSC395 Module 3\CSC395 Module 3\obj\Debug\CSC395 Module 3.csproj.CoreCompileInputs.cache
+C:\Users\Razvan\source\repos\CSC395 Module 3\CSC395 Module 3\obj\Debug\CSC395 Module 3.exe
+C:\Users\Razvan\source\repos\CSC395 Module 3\CSC395 Module 3\obj\Debug\CSC395 Module 3.pdb
