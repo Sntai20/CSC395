@@ -35,12 +35,9 @@ namespace CSC395_Module2_Sorting
             Utility.Print(myArr1);
 
             // Sort user input.
-            //Utility.BubbleSortImproved(myArr);//sort the array
             Utility.BubbleReverseSort(myArr1);//sort the array
-            //Utility.SelectionSort(myArr);
             Utility.SelectionReverseSort(myArr2);
             //Utility.InsertionSort(myArr);
-            //Utility.MergeSort(myArr);
             Utility.MergeReverseSort(myArr3);
             //Utility.QuickReverseSort(myArr4);
 

@@ -16,13 +16,15 @@ namespace CSC395_Module2_Sorting
         //that were performed.Display it before exiting this method.
         public static void MergeReverseSort(string[] myArr3)
         {
+            double count = 0; 
             string[] tmp = new string[myArr3.Length]; //used as a temp buffer
             MergeReverseSortHelper(myArr3, 0, myArr3.Length - 1, tmp);
-
+            Console.WriteLine($"\nMergeReverseSort performed {count} comparisons.");
         }
 
         public static void MergeReverseSortHelper(string[] myArr3, int first, int last, string[] tmp)
         {
+            //double count = 0;
             if (first < last)//if we have at least two elements
             {
                 int mid = (first + last) / 2;
@@ -30,6 +32,7 @@ namespace CSC395_Module2_Sorting
                 MergeReverseSortHelper(myArr3, mid + 1, last, tmp);
                 Merge(myArr3, first, mid + 1, last, tmp);
             }
+            //Console.WriteLine($"\nMergeReverseSort performed {count} comparisons.");
         }
 
         public static void Merge(string[] myArr3, int first, int mid, int last, string[] tmp)
@@ -38,7 +41,6 @@ namespace CSC395_Module2_Sorting
             int i = first;
             int j = mid;
             int k = first;
-            double count = 0;
 
             while (i<mid && j <=last )
             {
@@ -48,14 +50,13 @@ namespace CSC395_Module2_Sorting
                     tmp[k] = myArr3[i];
                     k++;
                     i++;
-                    count++;
+
                 }
                 else
                 {
                     tmp[k] = myArr3[j];
                     j++;
                     k++;
-                    count++;
                 }
             }
 
@@ -65,7 +66,6 @@ namespace CSC395_Module2_Sorting
                 tmp[k] = myArr3[i];
                 k++;
                 i++;
-                count++;
             }
 
             while(j <= last)
@@ -73,13 +73,11 @@ namespace CSC395_Module2_Sorting
                 tmp[k] = myArr3[j];
                 j++;
                 k++;
-                count++;
             }
 
             //copy back tmp into arr
             for (int p = first; p <= last; p++)
                 myArr3[p] = tmp[p];
-            Console.WriteLine($"\nMergeReverseSort performed {count} comparisons.");
         }
 
         //TODO write the running time of the method.
