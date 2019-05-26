@@ -9,6 +9,7 @@ namespace CSC395_Module2_Sorting
 {
     class Program
     {
+        //TODO write the running time of the method.
         static void Main(string[] args)
         {
             // Read user input.

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace CSC395_Module2_Sorting
 {
     class Utility
     {
-        //TODO
+        //TODO write the running time of the method.
         //Modify the merge sort algorithm seen in class so it works with an array 
         //of strings AND the array will have the values sorted in reverse. Also 
         //add a local variable count(use long count) of the number of comparisons 
@@ -78,7 +79,7 @@ namespace CSC395_Module2_Sorting
                 arr[p] = tmp[p];
         }
 
-        //TODO
+        //TODO write the running time of the method.
         //Modify the quick sort algorithm seen in class so it works with an 
         //array of strings AND the array will have the values sorted in reverse. 
         //Also add a local variable count(use long count) of the number of 
@@ -106,7 +107,7 @@ namespace CSC395_Module2_Sorting
             }
         }
 
-        //TODO
+        //TODO write the running time of the method.
         //Modify the selection sort algorithm seen in class so it works with an 
         //array of strings AND the array will have the values sorted in reverse.
         //Also add a local variable count(use long count) of the number of 
@@ -144,14 +145,14 @@ namespace CSC395_Module2_Sorting
             }
         }
 
-        //TODO
+        //TODO write the running time of the method.
         //Modify the bubble sort algorithm seen in class so it works with an 
         //array of strings AND the array will have the values sorted in reverse.
         //Also add a local variable count(use long count) of the number of 
         //comparisons that were performed.Display it before exiting this method.
         public static void BubbleReverseSort(string[] myArr)
         {
-          string tmp;
+            string tmp;
             bool flag = false;
 
 
@@ -159,6 +160,7 @@ namespace CSC395_Module2_Sorting
             {
                 flag = false;
                 for (int i = 0; i < j; i++)
+                    //if (myArr[i].CompareTo(myArr[i+1])
                     if (string.Compare(myArr[i], myArr[i + 1], StringComparison.CurrentCulture) < 0)
                     {
                         tmp = myArr[i];
@@ -208,17 +210,23 @@ namespace CSC395_Module2_Sorting
             }
         }
 
-        //TODO
+        //TODO write the running time of the method.
         public static string[] ReadFromFile(string path)
         {
             // Read text from text file and store in string.
-            string[] text = System.IO.File.ReadAllLines(path);
-            foreach (string words in text)
+            string[] words = System.IO.File.ReadAllLines(path);
+
+            // Create parallel array of words by calling ToLowerInvariant.
+            string[] lowerWords = new string[words.Length];
+            for (int ctr = words.GetLowerBound(0); ctr <= words.GetUpperBound(0); ctr++)
+                lowerWords[ctr] = words[ctr].ToLowerInvariant();
+
+            foreach (string lowerWord in lowerWords)
             {
-                Console.Write(words + " ");
+                Console.Write(lowerWord + " ");
             }
             // Pass the file contents to the CountVowels function.
-            return text;
+            return lowerWords;
         }
     }
 }
