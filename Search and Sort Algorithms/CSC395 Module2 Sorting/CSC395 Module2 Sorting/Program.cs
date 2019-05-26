@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace M2P1
+namespace CSC395_Module2_Sorting
 {
     class Program
     {
@@ -41,11 +41,11 @@ namespace M2P1
             Utility.SelectionReverseSort(myArr2);
             //Utility.InsertionSort(myArr);
             //Utility.MergeSort(myArr);
-            //Utility.MergeReverseSort(myArr3);
+            Utility.MergeReverseSort(myArr3);
             //Utility.QuickReverseSort(myArr4);
 
             // Display the user input values after sorting.
-            Console.WriteLine("\n\nThe array values AFTER sorting: ");
+            Console.WriteLine("\n\nThe array values AFTER sorting: "); 
             Utility.Print(myArr1, myArr2, myArr3, myArr4);
         }
     }

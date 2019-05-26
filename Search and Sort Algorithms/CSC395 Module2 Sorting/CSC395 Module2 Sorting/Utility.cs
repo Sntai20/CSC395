@@ -14,71 +14,72 @@ namespace CSC395_Module2_Sorting
         //of strings AND the array will have the values sorted in reverse. Also 
         //add a local variable count(use long count) of the number of comparisons 
         //that were performed.Display it before exiting this method.
-        public static void MergeReverseSort()
+        public static void MergeReverseSort(string[] myArr3)
         {
-            double count = 0;
-            new NotImplementedException();
-            Console.WriteLine($"\nMergeReverseSort performed {count} comparisons.");
+            string[] tmp = new string[myArr3.Length]; //used as a temp buffer
+            MergeReverseSortHelper(myArr3, 0, myArr3.Length - 1, tmp);
+
         }
 
-        public static void MergeSort(int[] arr)
+        public static void MergeReverseSortHelper(string[] myArr3, int first, int last, string[] tmp)
         {
-            int[] tmp = new int[arr.Length]; //used as a temp buffer
-            MergeSortHelper(arr, 0, arr.Length - 1, tmp);
-        }
-
-        public static void MergeSortHelper(int[] arr, int first, int last, int[] tmp)
-        {
-            if(first<last)//if we have at least two elements
+            if (first < last)//if we have at least two elements
             {
                 int mid = (first + last) / 2;
-                MergeSortHelper(arr, first, mid ,tmp);
-                MergeSortHelper(arr, mid+1, last,tmp);
-                Merge(arr, first, mid+1, last, tmp);
+                MergeReverseSortHelper(myArr3, first, mid, tmp);
+                MergeReverseSortHelper(myArr3, mid + 1, last, tmp);
+                Merge(myArr3, first, mid + 1, last, tmp);
             }
         }
 
-        public static void Merge(int[] arr, int first, int mid, int last, int[] tmp)
+        public static void Merge(string[] myArr3, int first, int mid, int last, string[] tmp)
         {
             //tmp is the temporary buffer
             int i = first;
             int j = mid;
             int k = first;
+            double count = 0;
 
-            while(i<mid && j <=last )
+            while (i<mid && j <=last )
             {
-                if (arr[i] < arr[j])//pick the smallest of the two ...
+                if (string.Compare(myArr3[i], myArr3[j], StringComparison.CurrentCulture) > 0)
+                    //if (arr[i] < arr[j])//pick the smallest of the two ...
                 {
-                    tmp[k] = arr[i];
+                    tmp[k] = myArr3[i];
                     k++;
                     i++;
+                    count++;
                 }
                 else
                 {
-                    tmp[k] = arr[j];
+                    tmp[k] = myArr3[j];
                     j++;
                     k++;
+                    count++;
                 }
             }
 
             //put the remaining elements
             while(i<mid) //only runs if there are elements left in the first half
             {
-                tmp[k] = arr[i];
+                tmp[k] = myArr3[i];
                 k++;
                 i++;
+                count++;
             }
 
             while(j <= last)
             {
-                tmp[k] = arr[j];
+                tmp[k] = myArr3[j];
                 j++;
                 k++;
+                count++;
             }
 
             //copy back tmp into arr
             for (int p = first; p <= last; p++)
-                arr[p] = tmp[p];
+                myArr3[p] = tmp[p];
+            Console.WriteLine($"\nMergeReverseSort performed {count} comparisons.");
         }
 
         //TODO write the running time of the method.

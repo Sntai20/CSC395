@@ -12,3 +12,10 @@ C:/Users/Razvan/source/repos/CSC395 Module2 Sorting/CSC395 Module2 Sorting/obj/D
 /Users/antonio/Documents/GitHub/CSC395/Class Examples/CSC395 Module2 Sorting/CSC395 Module2 Sorting/obj/Debug/CSC395 Module2 Sorting.csproj.CoreCompileInputs.cache
 /Users/antonio/Documents/GitHub/CSC395/Class Examples/CSC395 Module2 Sorting/CSC395 Module2 Sorting/obj/Debug/CSC395 Module2 Sorting.exe
 /Users/antonio/Documents/GitHub/CSC395/Class Examples/CSC395 Module2 Sorting/CSC395 Module2 Sorting/obj/Debug/CSC395 Module2 Sorting.pdb
+/Users/antonio/Documents/GitHub/CSC395/Search and Sort Algorithms/CSC395 Module2 Sorting/CSC395 Module2 Sorting/obj/Debug/CSC395 Module2 Sorting.csprojAssemblyReference.cache
+/Users/antonio/Documents/GitHub/CSC395/Search and Sort Algorithms/CSC395 Module2 Sorting/CSC395 Module2 Sorting/obj/Debug/CSC395 Module2 Sorting.csproj.CoreCompileInputs.cache
+/Users/antonio/Documents/GitHub/CSC395/Search and Sort Algorithms/CSC395 Module2 Sorting/CSC395 Module2 Sorting/obj/Debug/CSC395 Module2 Sorting.exe
+/Users/antonio/Documents/GitHub/CSC395/Search and Sort Algorithms/CSC395 Module2 Sorting/CSC395 Module2 Sorting/obj/Debug/CSC395 Module2 Sorting.pdb
+/Users/antonio/Documents/GitHub/CSC395/Search and Sort Algorithms/CSC395 Module2 Sorting/CSC395 Module2 Sorting/bin/Debug/CSC395 Module2 Sorting.exe.config
+/Users/antonio/Documents/GitHub/CSC395/Search and Sort Algorithms/CSC395 Module2 Sorting/CSC395 Module2 Sorting/bin/Debug/CSC395 Module2 Sorting.exe
+/Users/antonio/Documents/GitHub/CSC395/Search and Sort Algorithms/CSC395 Module2 Sorting/CSC395 Module2 Sorting/bin/Debug/CSC395 Module2 Sorting.pdb
