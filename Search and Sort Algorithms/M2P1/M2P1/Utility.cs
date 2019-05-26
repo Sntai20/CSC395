@@ -5,7 +5,7 @@ namespace M2P1
     {
         public Utility()
         {
-            public static void MergeSort(int[] arr)
+            in void MergeSort(int[] myArr)
             {
                 int[] tmp = new int[arr.Length]; //used as a temp buffer
                 MergeSortHelper(arr, 0, arr.Length - 1, tmp);

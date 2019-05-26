@@ -8,6 +8,16 @@ namespace CSC395_Module2_Sorting
 {
     class Utility
     {
+        //TODO
+        //Modify the merge sort algorithm seen in class so it works with an array 
+        //of strings AND the array will have the values sorted in reverse. Also 
+        //add a local variable count(use long count) of the number of comparisons 
+        //that were performed.Display it before exiting this method.
+        public static void MergeReverseSort()
+        {
+            throw new NotImplementedException();
+        }
+
         public static void MergeSort(int[] arr)
         {
             int[] tmp = new int[arr.Length]; //used as a temp buffer
@@ -68,6 +78,16 @@ namespace CSC395_Module2_Sorting
                 arr[p] = tmp[p];
         }
 
+        //TODO
+        //Modify the quick sort algorithm seen in class so it works with an 
+        //array of strings AND the array will have the values sorted in reverse. 
+        //Also add a local variable count(use long count) of the number of 
+        //comparisons that were performed.Display it before exiting this method.
+        public static void QuickReverseSort(object myArr)
+        {
+            throw new NotImplementedException();
+        }
+
         public static void InsertionSort(int[] arr)//worst case:  O(n^2), best case is Omega(n)
         {
             for(int i=1;i<arr.Length;i++)
@@ -86,6 +106,28 @@ namespace CSC395_Module2_Sorting
             }
         }
 
+        //TODO
+        //Modify the selection sort algorithm seen in class so it works with an 
+        //array of strings AND the array will have the values sorted in reverse.
+        //Also add a local variable count(use long count) of the number of 
+        //comparisons that were performed.Display it before exiting this method.
+        public static void SelectionReverseSort(string[] myArr)
+        {
+            for (int i = 0; i < myArr.Length - 1; i++)
+            {
+                int minPos = i;
+                for (int j = i + 1; j < myArr.Length; j++)
+                    if (myArr.Length > minPos)
+                        if (myArr[j].CompareTo(myArr[minPos]) > 0)
+                            minPos = j;
+
+                //swap the elements at minPos and i
+                string tmp = myArr[i];
+                myArr[i] = myArr[minPos];
+                myArr[minPos] = tmp;
+            }
+        }
+
         public static void SelectionSort(int[] arr) //best and worst is O(n^2)
         {
             for(int i=0; i<arr.Length-1;i++)
@@ -99,6 +141,33 @@ namespace CSC395_Module2_Sorting
                 int tmp = arr[i];
                 arr[i] = arr[minPos];
                 arr[minPos] = tmp;
+            }
+        }
+
+        //TODO
+        //Modify the bubble sort algorithm seen in class so it works with an 
+        //array of strings AND the array will have the values sorted in reverse.
+        //Also add a local variable count(use long count) of the number of 
+        //comparisons that were performed.Display it before exiting this method.
+        public static void BubbleReverseSort(string[] myArr)
+        {
+          string tmp;
+            bool flag = false;
+
+
+            for (int j = myArr.Length - 1; j > 0; j--)
+            {
+                flag = false;
+                for (int i = 0; i < j; i++)
+                    if (string.Compare(myArr[i], myArr[i + 1], StringComparison.CurrentCulture) < 0)
+                    {
+                        tmp = myArr[i];
+                        myArr[i] = myArr[i + 1];
+                        myArr[i + 1] = tmp;
+                        flag = true;
+                    }
+                if (flag == false)//i.e. the array is sorted
+                    break;
             }
         }
 
@@ -137,6 +206,19 @@ namespace CSC395_Module2_Sorting
                 if (flag == false)//i.e. the array is sorted
                     break;
             }
+        }
+
+        //TODO
+        public static string[] ReadFromFile(string path)
+        {
+            // Read text from text file and store in string.
+            string[] text = System.IO.File.ReadAllLines(path);
+            foreach (string words in text)
+            {
+                Console.Write(words + " ");
+            }
+            // Pass the file contents to the CountVowels function.
+            return text;
         }
     }
 }
