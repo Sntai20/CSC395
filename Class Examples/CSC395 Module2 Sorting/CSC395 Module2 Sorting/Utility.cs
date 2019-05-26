@@ -139,18 +139,6 @@ namespace CSC395_Module2_Sorting
             Console.WriteLine($"\nSelectionReverseSort performed {count} comparisons.");
         }
 
-        //private static void StringComparer(string[] myArr)
-        //{
-        //    string strA = " ";
-        //    string strB = " "; 
-        //    for (int i = 0; i < myArr.Length - 1; i++)
-        //    {
-        //        myArr[i + 1] = strB;
-        //        myArr[i] = strA;
-        //        StringComparer(strA, strB])
-        //    }
-        //}
-
         public static void SelectionSort(int[] arr) //best and worst is O(n^2)
         {
             for(int i=0; i<arr.Length-1;i++)
