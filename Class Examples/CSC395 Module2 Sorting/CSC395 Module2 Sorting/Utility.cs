@@ -18,7 +18,7 @@ namespace CSC395_Module2_Sorting
         {
             double count = 0;
             new NotImplementedException();
-            Console.WriteLine($"Number of comparisons performed: {count}");
+            Console.WriteLine($"\nMergeReverseSort performed {count} comparisons.");
         }
 
         public static void MergeSort(int[] arr)
@@ -90,7 +90,7 @@ namespace CSC395_Module2_Sorting
         {
             double count = 0;
             throw new NotImplementedException();
-            Console.WriteLine($"Number of comparisons performed: {count}");
+            Console.WriteLine($"\nQuickReverseSort performed {count} comparisons.");
         }
 
         public static void InsertionSort(int[] arr)//worst case:  O(n^2), best case is Omega(n)
@@ -118,24 +118,38 @@ namespace CSC395_Module2_Sorting
         //comparisons that were performed.Display it before exiting this method.
         public static void SelectionReverseSort(string[] myArr)
         {
-            double count = 0; 
+            double count = 0;
+
             for (int i = 0; i < myArr.Length - 1; i++)
             {
                 int minPos = i;
 
-
                 for (int j = i + 1; j < myArr.Length; j++)
-                    if (myArr.Length > minPos)
-                        if (myArr[j].CompareTo(myArr[minPos]) > 0)
-                            minPos = j;
+                    if (string.Compare(myArr[j], myArr[minPos], StringComparison.CurrentCulture) > 0)
+                        minPos = j;
+                    //swap the elements at minPos and i
+                    string tmp = myArr[i];
+                    myArr[i] = myArr[minPos];
+                    myArr[minPos] = tmp;
+                    count++;
 
-                //swap the elements at minPos and i
-                string tmp = myArr[i];
-                myArr[i] = myArr[minPos];
-                myArr[minPos] = tmp;
+                //if (myArr.Length > minPos)
+                //if (string.Compare(myArr[i], myArr[i + 1], StringComparison.CurrentCulture) <= 0)
             }
-            Console.WriteLine($"Number of comparisons performed: {count}");
+            Console.WriteLine($"\nSelectionReverseSort performed {count} comparisons.");
         }
+
+        //private static void StringComparer(string[] myArr)
+        //{
+        //    string strA = " ";
+        //    string strB = " "; 
+        //    for (int i = 0; i < myArr.Length - 1; i++)
+        //    {
+        //        myArr[i + 1] = strB;
+        //        myArr[i] = strA;
+        //        StringComparer(strA, strB])
+        //    }
+        //}
 
         public static void SelectionSort(int[] arr) //best and worst is O(n^2)
         {
@@ -154,10 +168,9 @@ namespace CSC395_Module2_Sorting
         }
 
         //TODO write the running time of the method.
-        //Modify the bubble sort algorithm seen in class so it works with an 
-        //array of strings AND the array will have the values sorted in reverse.
-        //Also add a local variable count(use long count) of the number of 
-        //comparisons that were performed.Display it before exiting this method.
+        //Added a bubble sort algorithm to sort an array of strings in reverse. 
+        //Added a local variable to count of the number of comparisons that were performed.
+        //Display counter before exiting this method.
         public static void BubbleReverseSort(string[] myArr)
         {
             string tmp;
@@ -180,7 +193,7 @@ namespace CSC395_Module2_Sorting
                 if (flag == false)//i.e. the array is sorted
                     break;
             }
-            Console.WriteLine($"Number of comparisons performed: {count}");
+            Console.WriteLine($"\nBubbleReverseSort performed {count} comparisons.");
         }
 
         public static void BubbleSort(int[] arr) // worst case: O(n^2), best case: Omega(n^2) => Theta(n^2)
@@ -229,14 +242,33 @@ namespace CSC395_Module2_Sorting
             // Create parallel array of words by calling ToLowerInvariant.
             string[] lowerWords = new string[words.Length];
             for (int ctr = words.GetLowerBound(0); ctr <= words.GetUpperBound(0); ctr++)
-                lowerWords[ctr] = words[ctr].ToLowerInvariant();
+                lowerWords[ctr] = words[ctr].ToLower();
 
-            foreach (string lowerWord in lowerWords)
-            {
-                Console.Write(lowerWord + " ");
-            }
+            //foreach (string lowerWord in lowerWords)
+            //{
+            //    Console.Write(lowerWord + " ");
+            //}
             // Pass the file contents to the CountVowels function.
             return lowerWords;
+        }
+
+        public static void Print(string[] myArr1)
+        {
+                // To make the loop easier use var instead of int.
+                foreach (var arrValue in myArr1)
+                    Console.Write(arrValue + " ");
+                Console.WriteLine();
+        }
+        public static void Print(string[] myArr1, string[] myArr2, string[] myArr3, string[] myArr4)
+        {
+            string[][] allArr = { myArr1, myArr2, myArr3, myArr4 };
+            foreach (var myArr in allArr)
+            {
+                // To make the loop easier use var instead of int.
+                foreach (var arrValue in myArr)
+                    Console.Write(arrValue + " ");
+                Console.WriteLine();
+            }
         }
     }
 }

@@ -18,38 +18,35 @@ namespace CSC395_Module2_Sorting
             //string[] myArr = { "bubble", "merge", "a", "quicksort" };
 
             //TODO 
-            //In Main read the entries from file given below, input.txt
-            //(one line per entry) and store them into an array. Make four copies 
-            //of it.Then, on each copy call bubbleReverseSort, selectionReverseSort, 
+            //Read the entries from input.txt (one line per entry) and store them into an array.
+            //Four array copies, each copy call bubbleReverseSort, selectionReverseSort, 
             //mergeReverseSort, quickReverseSort. 
-            string[] myArr = Utility.ReadFromFile(path);
+            //string[] myArr = Utility.ReadFromFile(path);
+            string[] myArr1 = Utility.ReadFromFile(path);
+            string[] myArr2 = Utility.ReadFromFile(path);
+            string[] myArr3 = Utility.ReadFromFile(path);
+            string[] myArr4 = Utility.ReadFromFile(path);
 
             //TODO For each of these measure the execution time
             //(how long it took to run the reverse sorting) and display this time.
 
             // Display user input values before sorting.
             Console.WriteLine("\n\nThe array values BEFORE sorting: ");
-            // To make the loop easier use var instead of int.
-            foreach(var arrValue in myArr)
-                Console.Write(arrValue+" ");
-            Console.WriteLine();
+            Utility.Print(myArr1);
 
             // Sort user input.
             //Utility.BubbleSortImproved(myArr);//sort the array
-            Utility.BubbleReverseSort(myArr);//sort the array
+            Utility.BubbleReverseSort(myArr1);//sort the array
             //Utility.SelectionSort(myArr);
-            //Utility.SelectionReverseSort(myArr);
+            Utility.SelectionReverseSort(myArr2);
             //Utility.InsertionSort(myArr);
             //Utility.MergeSort(myArr);
-            //Utility.MergeReverseSort();
-            //Utility.QuickReverseSort(myArr);
+            //Utility.MergeReverseSort(myArr3);
+            //Utility.QuickReverseSort(myArr4);
 
             // Display the user input values after sorting.
-            Console.WriteLine("\n\nThe array values AFTER sorting: ");
-            // To make the loop easier use var instead of int.
-            foreach (var arrValue in myArr)
-                Console.Write(arrValue + " ");
-            Console.WriteLine();
+            Console.WriteLine("\n\nThe array values AFTER sorting: "); 
+            Utility.Print(myArr1, myArr2, myArr3, myArr4);
         }
     }
 }
