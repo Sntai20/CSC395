@@ -16,7 +16,9 @@ namespace CSC395_Module2_Sorting
         //that were performed.Display it before exiting this method.
         public static void MergeReverseSort()
         {
-            throw new NotImplementedException();
+            double count = 0;
+            new NotImplementedException();
+            Console.WriteLine($"Number of comparisons performed: {count}");
         }
 
         public static void MergeSort(int[] arr)
@@ -86,7 +88,9 @@ namespace CSC395_Module2_Sorting
         //comparisons that were performed.Display it before exiting this method.
         public static void QuickReverseSort(object myArr)
         {
+            double count = 0;
             throw new NotImplementedException();
+            Console.WriteLine($"Number of comparisons performed: {count}");
         }
 
         public static void InsertionSort(int[] arr)//worst case:  O(n^2), best case is Omega(n)
@@ -114,9 +118,12 @@ namespace CSC395_Module2_Sorting
         //comparisons that were performed.Display it before exiting this method.
         public static void SelectionReverseSort(string[] myArr)
         {
+            double count = 0; 
             for (int i = 0; i < myArr.Length - 1; i++)
             {
                 int minPos = i;
+
+
                 for (int j = i + 1; j < myArr.Length; j++)
                     if (myArr.Length > minPos)
                         if (myArr[j].CompareTo(myArr[minPos]) > 0)
@@ -127,6 +134,7 @@ namespace CSC395_Module2_Sorting
                 myArr[i] = myArr[minPos];
                 myArr[minPos] = tmp;
             }
+            Console.WriteLine($"Number of comparisons performed: {count}");
         }
 
         public static void SelectionSort(int[] arr) //best and worst is O(n^2)
@@ -154,7 +162,7 @@ namespace CSC395_Module2_Sorting
         {
             string tmp;
             bool flag = false;
-
+            long count = 0;
 
             for (int j = myArr.Length - 1; j > 0; j--)
             {
@@ -167,10 +175,12 @@ namespace CSC395_Module2_Sorting
                         myArr[i] = myArr[i + 1];
                         myArr[i + 1] = tmp;
                         flag = true;
+                        count++;
                     }
                 if (flag == false)//i.e. the array is sorted
                     break;
             }
+            Console.WriteLine($"Number of comparisons performed: {count}");
         }
 
         public static void BubbleSort(int[] arr) // worst case: O(n^2), best case: Omega(n^2) => Theta(n^2)
