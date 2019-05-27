@@ -29,24 +29,32 @@ namespace CSC395_Module2_Sorting
             //(how long it took to run the reverse sorting) and display this time.
 
             // Sort user input.
+            //BubbleReverseSort performed 108812539 comparisons.
+            //BubbleReverseSort: Running time: 97599 milliseconds.
             var watch1 = System.Diagnostics.Stopwatch.StartNew();
             Utility.BubbleReverseSort(myArr1);
             watch1.Stop();
             var elapsedMs1 = watch1.ElapsedMilliseconds;
             Console.WriteLine($"BubbleReverseSort: Running time: {elapsedMs1} milliseconds.");
 
+            //SelectionReverseSort performed 20843 comparisons.
+            //SelectionReverseSort: Running time: 64338 milliseconds.
             var watch2 = System.Diagnostics.Stopwatch.StartNew();
             Utility.SelectionReverseSort(myArr2);
             watch2.Stop();
             var elapsedMs2 = watch2.ElapsedMilliseconds;
             Console.WriteLine($"SelectionReverseSort: Running time: {elapsedMs2} milliseconds.");
 
+            //MergeReverseSort performed 273179 comparisons.
+            //MergeReverseSort: Running time: 238 milliseconds.
             var watch3 = System.Diagnostics.Stopwatch.StartNew();
             Utility.MergeReverseSort(myArr3);
             watch3.Stop();
             var elapsedMs3 = watch3.ElapsedMilliseconds;
             Console.WriteLine($"MergeReverseSort: Running time: {elapsedMs3} milliseconds.");
 
+            //QuickReverseSort performed 335080 comparisons.
+            //QuickReverseSort: Running time: 267 milliseconds.
             var watch4 = System.Diagnostics.Stopwatch.StartNew();
             Utility.QuickReverseSort(myArr4);
             watch4.Stop();
