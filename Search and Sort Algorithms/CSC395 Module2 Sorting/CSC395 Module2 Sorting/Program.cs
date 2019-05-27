@@ -37,9 +37,8 @@ namespace CSC395_Module2_Sorting
             //Utility.InsertionSort(myArr);
             //Utility.MergeReverseSort(myArr3);
             //Utility.QuickReverseSort(myArr4);
-            Console.WriteLine("Quick Sort");
-            int[] arr = { 67, 12, 95, 56, 85, 1, 100, 23, 60, 9 };
 
+            int[] arr = { 67, 12, 95, 56, 85, 1, 100, 23, 60, 9 };
             Utility.quickSort(arr);
 
 
