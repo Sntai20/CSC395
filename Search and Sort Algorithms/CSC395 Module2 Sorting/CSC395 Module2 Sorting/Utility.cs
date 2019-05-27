@@ -85,30 +85,118 @@ namespace CSC395_Module2_Sorting
         //array of strings AND the array will have the values sorted in reverse. 
         //Also add a local variable count(use long count) of the number of 
         //comparisons that were performed.Display it before exiting this method.
-        public static void QuickReverseSort(object myArr)
+
+        //public static void QuickReverseSort(string[] myArr4)
+        //{
+        //    double count = 0;
+        //    QuickReverseSortHelper(myArr4, 0, myArr4.Length - 1);
+        //    Console.WriteLine($"\nQuickReverseSort performed {count} comparisons.");
+        //}
+
+
+        //public static void QuickReverseSortHelper(string[] myArr4, int left, int right)
+        //{
+        //    if (left < right)
+        //    {
+        //        int sz = right - left + 1;
+        //        string pivotpt = (left + right) / 2;
+        //        int i = left;
+        //        int j = right - 1;
+        //        int pivot = myArr4[pivotpt];
+        //        swap(myArr4[pivotpt], myArr4[right]);
+        //        pivotpt = right;
+        //        while (i < j)
+        //        {
+        //            while (i < right - 1 && myArr4[i] < pivot)
+        //                i++;
+        //            while (j > 0 && myArr4[j] > pivot)
+        //                j--;
+        //            if (i < j)
+        //                swap(myArr4[i++], myArr4[j--]);
+        //        }
+        //        if (i == j && myArr4[i] < myArr4[pivotpt])
+        //            i++;
+        //        swap(myArr4[i], myArr4[pivotpt]);
+        //        quick(myArr4, left, i - 1);
+        //        quick(myArr4, i + 1, right);
+        //    }
+        //}
+
+        //public static void quick(int arr[], int size)
+        //{
+        //    quick(arr, 0, size - 1);
+        //}
+
+        static public int Partition(int[] arr, int left, int right)
         {
-            double count = 0;
-            throw new NotImplementedException();
-            Console.WriteLine($"\nQuickReverseSort performed {count} comparisons.");
+            int pivot;
+            pivot = arr[left];
+            while (true)
+            {
+                while (arr[left] < pivot)
+                {
+                    left++;
+                }
+                while (arr[right] > pivot)
+                {
+                    right--;
+                }
+                if (left < right)
+                {
+                    int temp = arr[right];
+                    arr[right] = arr[left];
+                    arr[left] = temp;
+                }
+                else
+                {
+                    return right;
+                }
+            }
+        }
+        public static void quickSort(int[] arr)
+        {
+            quickSortHelper(arr, 0, arr.Length - 1);
+            Console.Write("\nSorted Array is: ");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i] + " ");
+            }
+        }
+
+        public static void quickSortHelper(int[] arr, int left, int right)
+        {
+            int pivot;
+            if (left < right)
+            {
+                pivot = Partition(arr, left, right);
+                if (pivot > 1)
+                {
+                    quickSortHelper(arr, left, pivot - 1);
+                }
+                if (pivot + 1 < right)
+                {
+                    quickSortHelper(arr, pivot + 1, right);
+                }
+            }
         }
 
         public static void InsertionSort(int[] arr)//worst case:  O(n^2), best case is Omega(n)
-        {
-            for(int i=1;i<arr.Length;i++)
             {
-                int tmp = arr[i];//save the current element
-                //look to the left and shift all elements larger than tmp to the right, one position
-                int j = i - 1;
-                while (j >= 0 && arr[j]>tmp)
+                for(int i=1;i<arr.Length;i++)
                 {
-                    arr[j + 1] = arr[j];
-                    j--;
-                }
+                    int tmp = arr[i];//save the current element
+                    //look to the left and shift all elements larger than tmp to the right, one position
+                    int j = i - 1;
+                    while (j >= 0 && arr[j]>tmp)
+                    {
+                        arr[j + 1] = arr[j];
+                        j--;
+                    }
 
-                //put tmp back into the arr
-                arr[j+1] = tmp;
+                    //put tmp back into the arr
+                    arr[j+1] = tmp;
+                }
             }
-        }
 
         //TODO write the running time of the method.
         //Modify the selection sort algorithm seen in class so it works with an 

@@ -14,14 +14,11 @@ namespace CSC395_Module2_Sorting
         {
             // Read user input.
             string path = @"/Users/antonio/Library/Mobile Documents/com~apple~CloudDocs/Documents/Education and Training/SMU/CSC395/M2 Homework/input.txt";
-            //int[] myArr = { 21, 107, 6, 50, 100, 3};
-            //string[] myArr = { "bubble", "merge", "a", "quicksort" };
 
             //TODO 
             //Read the entries from input.txt (one line per entry) and store them into an array.
             //Four array copies, each copy call bubbleReverseSort, selectionReverseSort, 
             //mergeReverseSort, quickReverseSort. 
-            //string[] myArr = Utility.ReadFromFile(path);
             string[] myArr1 = Utility.ReadFromFile(path);
             string[] myArr2 = Utility.ReadFromFile(path);
             string[] myArr3 = Utility.ReadFromFile(path);
@@ -35,15 +32,20 @@ namespace CSC395_Module2_Sorting
             Utility.Print(myArr1);
 
             // Sort user input.
-            Utility.BubbleReverseSort(myArr1);//sort the array
-            Utility.SelectionReverseSort(myArr2);
+            //Utility.BubbleReverseSort(myArr1);//sort the array
+            //Utility.SelectionReverseSort(myArr2);
             //Utility.InsertionSort(myArr);
-            Utility.MergeReverseSort(myArr3);
+            //Utility.MergeReverseSort(myArr3);
             //Utility.QuickReverseSort(myArr4);
+            Console.WriteLine("Quick Sort");
+            int[] arr = { 67, 12, 95, 56, 85, 1, 100, 23, 60, 9 };
+
+            Utility.quickSort(arr);
+
 
             // Display the user input values after sorting.
-            Console.WriteLine("\n\nThe array values AFTER sorting: "); 
-            Utility.Print(myArr1, myArr2, myArr3, myArr4);
+            //Console.WriteLine("\n\nThe array values AFTER sorting: "); 
+            //Utility.Print(myArr1, myArr2, myArr3, myArr4);
         }
     }
 }
