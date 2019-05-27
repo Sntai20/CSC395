@@ -29,14 +29,29 @@ namespace CSC395_Module2_Sorting
             //(how long it took to run the reverse sorting) and display this time.
 
             // Sort user input.
-            Utility.BubbleReverseSort(myArr1);//sort the array
-            Utility.SelectionReverseSort(myArr2);
-            //Utility.InsertionSort(myArr);
-            Utility.MergeReverseSort(myArr3);
-            Utility.QuickReverseSort(myArr4);
+            var watch1 = System.Diagnostics.Stopwatch.StartNew();
+            Utility.BubbleReverseSort(myArr1);
+            watch1.Stop();
+            var elapsedMs1 = watch1.ElapsedMilliseconds;
+            Console.WriteLine($"BubbleReverseSort: Running time: {elapsedMs1} milliseconds.");
 
-            //int[] arr = { 67, 12, 95, 56, 85, 1, 100, 23, 60, 9 };
-            //Utility.quickSort(myArr4);
+            var watch2 = System.Diagnostics.Stopwatch.StartNew();
+            Utility.SelectionReverseSort(myArr2);
+            watch2.Stop();
+            var elapsedMs2 = watch2.ElapsedMilliseconds;
+            Console.WriteLine($"SelectionReverseSort: Running time: {elapsedMs2} milliseconds.");
+
+            var watch3 = System.Diagnostics.Stopwatch.StartNew();
+            Utility.MergeReverseSort(myArr3);
+            watch3.Stop();
+            var elapsedMs3 = watch3.ElapsedMilliseconds;
+            Console.WriteLine($"MergeReverseSort: Running time: {elapsedMs3} milliseconds.");
+
+            var watch4 = System.Diagnostics.Stopwatch.StartNew();
+            Utility.QuickReverseSort(myArr4);
+            watch4.Stop();
+            var elapsedMs4 = watch4.ElapsedMilliseconds;
+            Console.WriteLine($"QuickReverseSort: Running time: {elapsedMs4} milliseconds.");
 
             // Display user input values before sorting.
             Console.WriteLine("\nThe array values BEFORE sorting: ");

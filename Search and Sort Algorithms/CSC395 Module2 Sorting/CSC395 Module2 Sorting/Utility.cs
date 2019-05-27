@@ -18,24 +18,24 @@ namespace CSC395_Module2_Sorting
         {
             double count = 0; 
             string[] tmp = new string[myArr3.Length]; //used as a temp buffer
-            MergeReverseSortHelper(myArr3, 0, myArr3.Length - 1, tmp);
+            MergeReverseSortHelper(myArr3, 0, myArr3.Length - 1, tmp, ref count);
             Console.WriteLine($"\nMergeReverseSort performed {count} comparisons.");
         }
 
-        public static void MergeReverseSortHelper(string[] myArr3, int first, int last, string[] tmp)
+        public static void MergeReverseSortHelper(string[] myArr3, int first, int last, string[] tmp, ref double count)
         {
             //double count = 0;
             if (first < last)//if we have at least two elements
             {
                 int mid = (first + last) / 2;
-                MergeReverseSortHelper(myArr3, first, mid, tmp);
-                MergeReverseSortHelper(myArr3, mid + 1, last, tmp);
-                Merge(myArr3, first, mid + 1, last, tmp);
+                MergeReverseSortHelper(myArr3, first, mid, tmp, ref count);
+                MergeReverseSortHelper(myArr3, mid + 1, last, tmp, ref count);
+                Merge(myArr3, first, mid + 1, last, tmp, ref count);
             }
             //Console.WriteLine($"\nMergeReverseSort performed {count} comparisons.");
         }
 
-        public static void Merge(string[] myArr3, int first, int mid, int last, string[] tmp)
+        public static void Merge(string[] myArr3, int first, int mid, int last, string[] tmp, ref double count)
         {
             //tmp is the temporary buffer
             int i = first;
@@ -58,6 +58,7 @@ namespace CSC395_Module2_Sorting
                     j++;
                     k++;
                 }
+                count++;
             }
 
             //put the remaining elements
@@ -85,48 +86,6 @@ namespace CSC395_Module2_Sorting
         //array of strings AND the array will have the values sorted in reverse. 
         //Also add a local variable count(use long count) of the number of 
         //comparisons that were performed.Display it before exiting this method.
-
-        //public static void QuickReverseSort(string[] myArr4)
-        //{
-        //    double count = 0;
-        //    QuickReverseSortHelper(myArr4, 0, myArr4.Length - 1);
-        //    Console.WriteLine($"\nQuickReverseSort performed {count} comparisons.");
-        //}
-
-
-        //public static void QuickReverseSortHelper(string[] myArr4, int left, int right)
-        //{
-        //    if (left < right)
-        //    {
-        //        int sz = right - left + 1;
-        //        string pivotpt = (left + right) / 2;
-        //        int i = left;
-        //        int j = right - 1;
-        //        int pivot = myArr4[pivotpt];
-        //        swap(myArr4[pivotpt], myArr4[right]);
-        //        pivotpt = right;
-        //        while (i < j)
-        //        {
-        //            while (i < right - 1 && myArr4[i] < pivot)
-        //                i++;
-        //            while (j > 0 && myArr4[j] > pivot)
-        //                j--;
-        //            if (i < j)
-        //                swap(myArr4[i++], myArr4[j--]);
-        //        }
-        //        if (i == j && myArr4[i] < myArr4[pivotpt])
-        //            i++;
-        //        swap(myArr4[i], myArr4[pivotpt]);
-        //        quick(myArr4, left, i - 1);
-        //        quick(myArr4, i + 1, right);
-        //    }
-        //}
-
-        //public static void quick(int arr[], int size)
-        //{
-        //    quick(arr, 0, size - 1);
-        //}
-
         public static void QuickReverseSort(string[] myArr4)
         {
             double count = 0;
@@ -134,11 +93,7 @@ namespace CSC395_Module2_Sorting
             {
                 quickSortHelper(myArr4, 0, myArr4.Length - 1, ref count);
             }
-            //Console.Write("\nSorted Array is: ");
-            //for (int i = 0; i < myArr4.Length; i++)
-            //{
-            //    Console.Write(myArr4[i] + " ");
-            //}
+            Console.WriteLine($"\nQuickReverseSort performed {count} comparisons.");
         }
 
         public static void quickSortHelper(string[] myArr4, int left, int right, ref double count)
@@ -301,6 +256,21 @@ namespace CSC395_Module2_Sorting
                     break;
             }
         }
+        //public static void RunAll(string[] myArr1, string[] myArr2, string[] myArr3, string[] myArr4)
+        //{
+        //    ArrayList methods = new ArrayList
+            
+        //    };
+        //    //string[][] allArr = { myArr1, myArr2, myArr3, myArr4 };
+        //    foreach (var method in methods)
+        //    {
+        //        Console.Write(1++);
+        //        // To make the loop easier use var instead of int.
+        //        //foreach (var arrValue in myArr)
+
+        //        //Console.WriteLine();
+        //    }
+        //}
 
         //TODO write the running time of the method.
         public static string[] ReadFromFile(string path)
