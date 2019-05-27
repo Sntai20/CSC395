@@ -19,6 +19,7 @@ namespace CSC395_Module2_Sorting
             //Read the entries from input.txt (one line per entry) and store them into an array.
             //Four array copies, each copy call bubbleReverseSort, selectionReverseSort, 
             //mergeReverseSort, quickReverseSort. 
+            string[] myArr = Utility.ReadFromFile(path);
             string[] myArr1 = Utility.ReadFromFile(path);
             string[] myArr2 = Utility.ReadFromFile(path);
             string[] myArr3 = Utility.ReadFromFile(path);
@@ -27,24 +28,23 @@ namespace CSC395_Module2_Sorting
             //TODO For each of these measure the execution time
             //(how long it took to run the reverse sorting) and display this time.
 
-            // Display user input values before sorting.
-            Console.WriteLine("\n\nThe array values BEFORE sorting: ");
-            Utility.Print(myArr1);
-
             // Sort user input.
-            //Utility.BubbleReverseSort(myArr1);//sort the array
-            //Utility.SelectionReverseSort(myArr2);
+            Utility.BubbleReverseSort(myArr1);//sort the array
+            Utility.SelectionReverseSort(myArr2);
             //Utility.InsertionSort(myArr);
-            //Utility.MergeReverseSort(myArr3);
-            //Utility.QuickReverseSort(myArr4);
+            Utility.MergeReverseSort(myArr3);
+            Utility.QuickReverseSort(myArr4);
 
-            int[] arr = { 67, 12, 95, 56, 85, 1, 100, 23, 60, 9 };
-            Utility.quickSort(arr);
+            //int[] arr = { 67, 12, 95, 56, 85, 1, 100, 23, 60, 9 };
+            //Utility.quickSort(myArr4);
 
+            // Display user input values before sorting.
+            Console.WriteLine("\nThe array values BEFORE sorting: ");
+            Utility.Print(myArr);
 
             // Display the user input values after sorting.
-            //Console.WriteLine("\n\nThe array values AFTER sorting: "); 
-            //Utility.Print(myArr1, myArr2, myArr3, myArr4);
+            Console.WriteLine("\nThe array values AFTER sorting: "); 
+            Utility.Print(myArr1, myArr2, myArr3, myArr4);
         }
     }
 }

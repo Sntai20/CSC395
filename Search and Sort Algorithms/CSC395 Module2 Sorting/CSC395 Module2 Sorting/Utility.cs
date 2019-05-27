@@ -127,57 +127,51 @@ namespace CSC395_Module2_Sorting
         //    quick(arr, 0, size - 1);
         //}
 
-        static public int Partition(int[] arr, int left, int right)
+        public static void QuickReverseSort(string[] myArr4)
         {
-            int pivot;
-            pivot = arr[left];
-            while (true)
+            double count = 0;
+            if (myArr4 != null)
             {
-                while (arr[left] < pivot)
-                {
-                    left++;
-                }
-                while (arr[right] > pivot)
-                {
-                    right--;
-                }
-                if (left < right)
-                {
-                    int temp = arr[right];
-                    arr[right] = arr[left];
-                    arr[left] = temp;
-                }
-                else
-                {
-                    return right;
-                }
+                quickSortHelper(myArr4, 0, myArr4.Length - 1, ref count);
             }
+            //Console.Write("\nSorted Array is: ");
+            //for (int i = 0; i < myArr4.Length; i++)
+            //{
+            //    Console.Write(myArr4[i] + " ");
+            //}
         }
-        public static void quickSort(int[] arr)
+
+        public static void quickSortHelper(string[] myArr4, int left, int right, ref double count)
         {
-            quickSortHelper(arr, 0, arr.Length - 1);
-            Console.Write("\nSorted Array is: ");
-            for (int i = 0; i < arr.Length; i++)
+            if (left < right)
             {
-                Console.Write(arr[i] + " ");
+                int partIdx = Partition(myArr4, left, right, ref count);
+                quickSortHelper(myArr4, left, partIdx - 1, ref count);
+                quickSortHelper(myArr4, partIdx + 1, right, ref count);
             }
         }
 
-        public static void quickSortHelper(int[] arr, int left, int right)
+        static public int Partition(string[] myArr4, int left, int right, ref double count)
         {
-            int pivot;
-            if (left < right)
+            string pivot = myArr4[right];
+            int i = (left - 1);
+            for (int j = left; j < right; j++)
             {
-                pivot = Partition(arr, left, right);
-                if (pivot > 1)
+                if (string.Compare(myArr4[j], pivot, StringComparison.CurrentCulture) > 0)
                 {
-                    quickSortHelper(arr, left, pivot - 1);
+                    i++;
+                    string tmp = myArr4[i];
+                    myArr4[i] = myArr4[j];
+                    myArr4[j] = tmp;
+
                 }
-                if (pivot + 1 < right)
-                {
-                    quickSortHelper(arr, pivot + 1, right);
-                }
+                count++;
             }
+
+            string tmp1 = myArr4[i + 1];
+            myArr4[i + 1] = myArr4[right];
+            myArr4[right] = tmp1;
+            return i + 1;
         }
 
         public static void InsertionSort(int[] arr)//worst case:  O(n^2), best case is Omega(n)
