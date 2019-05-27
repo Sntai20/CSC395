@@ -13,7 +13,7 @@ namespace CSC395_Module2_Sorting
         static void Main(string[] args)
         {
             // Read user input.
-            string path = @"input2.txt";
+            string path = @"input.txt";
 
             // Read the entries from input.txt (one line per entry) and store them into an array.
             // Each copy call bubbleReverseSort, selectionReverseSort, mergeReverseSort, quickReverseSort. 
@@ -38,8 +38,8 @@ namespace CSC395_Module2_Sorting
             var elapsedMs1 = watch1.ElapsedMilliseconds;
             Console.WriteLine($"BubbleReverseSort: Running time: {elapsedMs1} milliseconds.");
 
-            // SelectionReverseSort performed 20843 comparisons.
-            // SelectionReverseSort: Running time: 64338 milliseconds.
+            // SelectionReverseSort performed 177671 comparisons.
+            // SelectionReverseSort: Running time: 61752 milliseconds.
             // O(n^2)
             var watch2 = System.Diagnostics.Stopwatch.StartNew();
             Utility.SelectionReverseSort(myArr2);
@@ -48,7 +48,7 @@ namespace CSC395_Module2_Sorting
             Console.WriteLine($"SelectionReverseSort: Running time: {elapsedMs2} milliseconds.");
 
             // MergeReverseSort performed 273179 comparisons.
-            // MergeReverseSort: Running time: 201 milliseconds.
+            // MergeReverseSort: Running time: 151 milliseconds.
             // O(n log n)
             var watch3 = System.Diagnostics.Stopwatch.StartNew();
             Utility.MergeReverseSort(myArr3);
@@ -56,8 +56,8 @@ namespace CSC395_Module2_Sorting
             var elapsedMs3 = watch3.ElapsedMilliseconds;
             Console.WriteLine($"MergeReverseSort: Running time: {elapsedMs3} milliseconds.");
 
-            // QuickReverseSort performed 335080 comparisons.
-            // QuickReverseSort: Running time: 188 milliseconds.
+            // QuickReverseSort performed 161375 comparisons.
+            // QuickReverseSort: Running time: 181 milliseconds.
             // O(n log n)
             var watch4 = System.Diagnostics.Stopwatch.StartNew();
             Utility.QuickReverseSort(myArr4);
