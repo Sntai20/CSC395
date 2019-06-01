@@ -10,6 +10,7 @@ namespace CSC395_Module3
     {
         static void Main(string[] args)
         {
+            //Test
             //create a new node
             Node myNode = new Node(" ");
 
