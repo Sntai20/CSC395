@@ -144,5 +144,12 @@ namespace CSC395_Module3
         {
             first = null;
         }
+
+        // TODO Problem 3: Add a new method void RemoveDuplicates() to remove 
+        // all duplicates from the linked list. Do not use an extra array, use 
+        // only O(1) extra memory for this operation.What is the running time?
+
+        // TODO Problem 4: Add a new method bool IsPalindrome() to check whether 
+        // the singly linked list is a palindrome. What is the running time?
     }
 }

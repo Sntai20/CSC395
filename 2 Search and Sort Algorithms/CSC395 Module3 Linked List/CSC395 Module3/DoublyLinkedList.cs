@@ -12,5 +12,8 @@ namespace CSC395_Module3
         public DoublyLinkedList()
         {
         }
+
+        // TODO Problem 5: Add a new method bool IsPalindrome() to check whether 
+        // the doubly linked list is a palindrome. What is the running time? 
     }
 }

@@ -74,10 +74,6 @@ namespace CSC395_Module3
 
             //Queue2 myQueue = new Queue2();
             //myQueue.
-
-// Problem 3 [20 points] To the code written for Problem 1 add a new method void RemoveDuplicates() that will remove all duplicates from the linked list.Do not use an extra array, use only O(1) extra memory for this operation.What is the running time?
-// Problem 4 [10 points] To the code written for Problem 1 add a new method bool IsPalindrome() that will check whether the singly linked list is a palindrome.If you don’t remember what palindrome is google the term or stop by my office. What is the running time? E.g. “church” -> “monk” -> “monk” -> “church” is a palindrome.
-//Problem 5 [10 points] To the code written for Problem 2 add a new method bool IsPalindrome() that will check whether the doubly linked list is a palindrome.If you don’t remember what palindrome is google the term or stop by my office. What is the running time? E.g. 21 <->  34  <-> 6  <-> 34 <->21 is a palindrome.
         }
     }
 }
