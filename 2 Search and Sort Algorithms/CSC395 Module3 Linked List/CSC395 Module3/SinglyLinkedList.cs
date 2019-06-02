@@ -8,11 +8,12 @@ namespace CSC395_Module3
     /// 
     /// Methods: SinglyLinkedList can perform the following methods
     /// AddFirst, AddLast, Delete, Insert, RemoveFirst, RemoveLast, PrintList.
-    public class SinglyLinkedList
+    //public class SLinkedListNode<T> : IComparable<SLinkedListNode<T>
+    public class SinglyLinkedList<T> : IComparable<Node<T>> where T : IComparable<T>
     {
         /// Summary Data: SinglyLinkedList can implement a Node class
         /// as the first node in the LinkedList.
-        public Node first;
+        public Node<T> first;
 
         // TODO Problem 1: Modify the code in class so it works with strings instead of integers.
         // TODO Implement all methods shown in the Course Notes (appendNode, insertNode, deleteNode, displayList, ...)
@@ -27,22 +28,22 @@ namespace CSC395_Module3
             return first == null;
         }
 
-        public void AddFirst(string value)
+        public void AddFirst(T value)
         {
-            Node newNode = new Node(value);
+            Node<T> newNode = new Node<T>(value);
             newNode.next = first;
             first = newNode;
         }
 
-        public void AddLast(string val)
+        public void AddLast(T value)
         {
             if (IsEmpty())
-                AddFirst(val);
+                AddFirst(value);
             else
             {
-                Node newNode = new Node(val);
+                Node<T> newNode = new Node<T>(value);
 
-                Node current = first;
+                Node<T> current = first;
                 while (current.next != null)
                 {
                     current = current.next;
@@ -52,25 +53,27 @@ namespace CSC395_Module3
             }
         }
 
-        public void Delete(string val)
-        {
-            if (IsEmpty())
-                throw new Exception("you can't delete from an empty list");
-            else if (val == first.value)
-                RemoveFirst();
-            else
-            {
-                Node curr = first;
+        //public void Delete(T val)
+        //{
+        //    if (IsEmpty())
+        //        throw new Exception("you can't delete from an empty list");
+        //    //else if (value == first.value)
+        //    //{
+        //    //    RemoveFirst();
+        //    //}
+        //    else
+        //    {
+        //        Node<T> curr = first;
 
-                while (curr.next != null && curr.next.value != val)
-                    curr = curr.next;
-                if (curr.next == null) //we didn't find the value val in the list
-                    throw new Exception("we didn't find  the element in the list");
-                else
-                    curr.next = curr.next.next;
-            }
+        //        while (curr.next != null && curr.next.value != val)
+        //            curr = curr.next;
+        //        if (curr.next == null) //we didn't find the value val in the list
+        //            throw new Exception("we didn't find  the element in the list");
+        //        else
+        //            curr.next = curr.next.next;
+        //    }
 
-        }
+        //}
 
         //public void Insert(string val)//it assumes the list is sorted!!!!
         //{
@@ -116,7 +119,7 @@ namespace CSC395_Module3
             }
             else
             {
-                Node current = first;
+                Node<T> current = first;
                 while (current.next.next != null)
                     current = current.next;
                 current.next = null;//remove the last node by making the next to last node point to null 
@@ -131,7 +134,7 @@ namespace CSC395_Module3
                 Console.WriteLine("the list is empty!!!");
             else
             {
-                Node current = first;
+                Node<T> current = first;
                 while (current != null)
                 {
                     Console.Write(current.value + "  ");
@@ -139,6 +142,12 @@ namespace CSC395_Module3
                 }
             }
         }
+
+        public int CompareTo(Node<T> other)
+        {
+            throw new NotImplementedException();
+        }
+
         // Constructor to initialize the first element in the linked list.
         public SinglyLinkedList()
         {

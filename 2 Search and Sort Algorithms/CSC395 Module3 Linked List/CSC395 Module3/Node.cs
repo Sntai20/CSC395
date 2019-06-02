@@ -1,16 +1,16 @@
 ﻿using System;
 namespace CSC395_Module3
 {
-    public class Node
+    public class Node<T>
     {
         // data
-        public string value { get; set; }
-        public Node next;
+        public T value { get; set; }
+        public Node<T> next;
 
         //methods
 
         // Constructor to initialize the value in the node and point to null.
-        public Node(string value)
+        public Node(T value)
         {
             this.value = value;
             this.next = null;

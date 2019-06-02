@@ -12,19 +12,19 @@ namespace CSC395_Module3
         static void Main(string[] args)
         {
             //create a new node
-            Node myNode = new Node(" ");
+            Node<string> myNode = new Node<string>(" ");
 
-            SinglyLinkedList myList = new SinglyLinkedList();
+            SinglyLinkedList<string> myList = new SinglyLinkedList<string>();
             Console.WriteLine(myList.IsEmpty());
             myList.AddLast("Building");
             myList.AddLast("Legos");
 
             myList.PrintList();
 
-            //myList.AddFirst(1);
-            //myList.AddFirst(2);
-            //myList.AddFirst(3);
-            //myList.PrintList();
+            myList.AddFirst("1");
+            myList.AddFirst("2");
+            myList.AddFirst("3");
+            myList.PrintList();
 
             //Console.WriteLine();
             //myList.AddLast(10);
