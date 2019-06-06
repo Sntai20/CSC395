@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{D5416C46-3F7D-47AE-B5B1-21764F48F23F}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CSC395 Module3/Program.cs">
+    <Files>
+      <File FileName="CSC395 Module3/Program.cs" Line="16" Column="29" />
+      <File FileName="CSC395 Module3/SinglyLinkedList.cs" Line="159" Column="46" />
+      <File FileName="CSC395 Module3/Node.cs" Line="13" Column="27" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.CSC395_220Module3 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

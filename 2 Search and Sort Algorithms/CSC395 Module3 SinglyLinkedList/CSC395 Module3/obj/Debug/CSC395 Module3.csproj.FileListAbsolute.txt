@@ -1,0 +1,21 @@
+C:/Users/Razvan/source/repos/CSC395 Module3/CSC395 Module3/bin/Debug/CSC395 Module3.exe.config
+C:/Users/Razvan/source/repos/CSC395 Module3/CSC395 Module3/bin/Debug/CSC395 Module3.exe
+C:/Users/Razvan/source/repos/CSC395 Module3/CSC395 Module3/bin/Debug/CSC395 Module3.pdb
+C:/Users/Razvan/source/repos/CSC395 Module3/CSC395 Module3/obj/Debug/CSC395 Module3.csprojAssemblyReference.cache
+C:/Users/Razvan/source/repos/CSC395 Module3/CSC395 Module3/obj/Debug/CSC395 Module3.csproj.CoreCompileInputs.cache
+C:/Users/Razvan/source/repos/CSC395 Module3/CSC395 Module3/obj/Debug/CSC395 Module3.exe
+C:/Users/Razvan/source/repos/CSC395 Module3/CSC395 Module3/obj/Debug/CSC395 Module3.pdb
+/Users/antonio/Downloads/CSC395 Module3/CSC395 Module3/bin/Debug/CSC395 Module3.exe.config
+/Users/antonio/Downloads/CSC395 Module3/CSC395 Module3/bin/Debug/CSC395 Module3.exe
+/Users/antonio/Downloads/CSC395 Module3/CSC395 Module3/bin/Debug/CSC395 Module3.pdb
+/Users/antonio/Downloads/CSC395 Module3/CSC395 Module3/obj/Debug/CSC395 Module3.csprojAssemblyReference.cache
+/Users/antonio/Downloads/CSC395 Module3/CSC395 Module3/obj/Debug/CSC395 Module3.csproj.CoreCompileInputs.cache
+/Users/antonio/Downloads/CSC395 Module3/CSC395 Module3/obj/Debug/CSC395 Module3.exe
+/Users/antonio/Downloads/CSC395 Module3/CSC395 Module3/obj/Debug/CSC395 Module3.pdb
+/Users/antonio/Documents/GitHub/CSC395/2 Search and Sort Algorithms/CSC395 Module3 SinglyLinkedList/CSC395 Module3/bin/Debug/CSC395 Module3.exe.config
+/Users/antonio/Documents/GitHub/CSC395/2 Search and Sort Algorithms/CSC395 Module3 SinglyLinkedList/CSC395 Module3/bin/Debug/CSC395 Module3.exe
+/Users/antonio/Documents/GitHub/CSC395/2 Search and Sort Algorithms/CSC395 Module3 SinglyLinkedList/CSC395 Module3/bin/Debug/CSC395 Module3.pdb
+/Users/antonio/Documents/GitHub/CSC395/2 Search and Sort Algorithms/CSC395 Module3 SinglyLinkedList/CSC395 Module3/obj/Debug/CSC395 Module3.csprojAssemblyReference.cache
+/Users/antonio/Documents/GitHub/CSC395/2 Search and Sort Algorithms/CSC395 Module3 SinglyLinkedList/CSC395 Module3/obj/Debug/CSC395 Module3.csproj.CoreCompileInputs.cache
+/Users/antonio/Documents/GitHub/CSC395/2 Search and Sort Algorithms/CSC395 Module3 SinglyLinkedList/CSC395 Module3/obj/Debug/CSC395 Module3.exe
+/Users/antonio/Documents/GitHub/CSC395/2 Search and Sort Algorithms/CSC395 Module3 SinglyLinkedList/CSC395 Module3/obj/Debug/CSC395 Module3.pdb
