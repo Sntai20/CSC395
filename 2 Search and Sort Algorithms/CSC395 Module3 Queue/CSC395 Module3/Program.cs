@@ -10,68 +10,47 @@ namespace CSC395_Module3
     {
         static void Main(string[] args)
         {
-            //create a new node
-            Node myNode = new Node(0);
+            // Problem 1 Let Q be a non - empty queue, and let S be an empty stack.
+            // This C# program reverses the order of the elements in Q, using S.
 
-            SinglyLinkedList myList = new SinglyLinkedList();
-            //Console.WriteLine(myList.IsEmpty());
-            //myList.AddLast(7);
+            // Make a queue named Q with numbers 1-8.
+            Queue2 Q = new Queue2();
+            int[] myQArr = { 1, 2, 3, 4, 5, 6, 7, 8 };
 
-            //myList.PrintList();
+            // Display the contents of myQArr.
+            Console.Write("Array contents before: ");
+            foreach (int val in myQArr)
+                Console.Write(val + " ");
 
-            //myList.AddFirst(1);
-            //myList.AddFirst(2);
-            //myList.AddFirst(3);
-            //myList.PrintList();
+            // Make a stack named S.
+            Stack S = new Stack();
 
-            //Console.WriteLine();
-            //myList.AddLast(10);
-            //myList.AddLast(20);
-            //myList.AddLast(30);
-            //myList.PrintList();
-
-            ////////////////////////////////////
-            //myList.Insert(-20);
-            //myList.Insert(10);
-            //myList.Insert(23);
-
-            //myList.Insert(14);
-
-            //myList.Insert(-21);
-            //myList.PrintList();
-
-            //myList.delete(10);
-            //myList.PrintList();
-
-
-            Stack myStack = new Stack();
-            int[] myArr = { 1,2,3,4,5,6,7,8};
-
-            Console.WriteLine("display the array:");
-            foreach(int val in myArr)
-                Console.Write(val+" ");
-
-            foreach (int val in myArr)
-                myStack.Push(val);
-
-            for(int i=0;i<myArr.Length;i++)
+            // Enqueue the numbers to the queue, then push the values into the stack.
+            Console.WriteLine();
+            foreach (int val in myQArr)
             {
-                myArr[i] = myStack.Peek();
-                myStack.Pop();
+                Q.Enqueue(val);
+                Console.Write($"Enqueue {val} into the queue, then "); 
+                Console.WriteLine($"Push {val} on to the stack ");
+                S.Push(val);
             }
 
+            // To reverses the order of the elements in Q, pop element off of S.
+            for (int i = 0; i < myQArr.Length; i++)
+            {
+                myQArr[i] = S.Peek();
+                S.Pop();
+            }
 
-            Console.WriteLine("display the array:");
-            foreach (int val in myArr)
+            // Display the contents of myQArr.
+            Console.Write("Array contents after: ");
+            foreach (int val in myQArr)
                 Console.Write(val + " ");
-            //while (!myStack.IsEmpty())
-            //{
-            //    Console.WriteLine(myStack.Peek());
-            //    myStack.Pop();
-            //}
-
-            Queue2 myQueue = new Queue2();
-            //myQueue.
+            while (!S.IsEmpty())
+            {
+                Console.WriteLine(S.Peek());
+                S.Pop();
+            }
         }
     }
 }
