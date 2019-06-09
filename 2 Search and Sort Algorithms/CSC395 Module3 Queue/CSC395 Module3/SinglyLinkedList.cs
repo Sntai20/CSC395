@@ -16,7 +16,7 @@ namespace CSC395_Module3
             return first == null;
         }
 
-        public void AddLast(int val)
+        public void AddLast(string val)
         {
             if (IsEmpty())
                 AddFirst(val);
@@ -33,7 +33,7 @@ namespace CSC395_Module3
                 current.next = newNode;
             }
         }
-        public void delete(int val)
+        public void delete(string val)
         {
             if (IsEmpty())
                 throw new Exception("you can't delete from an empty list");
@@ -53,15 +53,16 @@ namespace CSC395_Module3
 
         }
 
-        public void Insert(int val)//it assumes the list is sorted!!!!
+        public void Insert(string val)//it assumes the list is sorted!!!!
         {
-            if (IsEmpty() || val <= first.value)
+            if (IsEmpty() || string.Compare(val, first.value) < 0)
                 AddFirst(val);
             else
             {
                 Node newNode = new Node(val); //create a new node
                 Node curr = first;
-                while (curr.next != null && curr.next.value < val)
+                while (curr.next != null && string.Compare(curr.next.value, val) < 0)
+                //while (curr.next != null && curr.next.value < val)
                     curr = curr.next;
                 //if (curr.next == null) //ran to the end of the list
                 //   curr.next = newNode ;
@@ -104,9 +105,9 @@ namespace CSC395_Module3
             }
         }
 
-        public void AddFirst(int value)
+        public void AddFirst(string value)
         {
-            Node newNode = new Node(value);
+            Node newNode = new Node(value: value);
             newNode.next = first;
             first = newNode;
         }

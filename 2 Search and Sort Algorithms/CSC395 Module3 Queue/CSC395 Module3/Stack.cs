@@ -12,7 +12,7 @@ namespace CSC395_Module3
             return myStackData.IsEmpty();
         }
 
-        public void Push(int val)
+        public void Push(string val)
         {
             myStackData.AddFirst(val);
         }
@@ -23,7 +23,7 @@ namespace CSC395_Module3
         }
 
 
-        public int Peek()
+        public string Peek()
         {
             return myStackData.first.value;
         }

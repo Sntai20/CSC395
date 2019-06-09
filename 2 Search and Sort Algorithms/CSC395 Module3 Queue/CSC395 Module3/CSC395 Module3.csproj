@@ -49,6 +49,7 @@
     <Compile Include="Stack.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="SinglyLinkedList.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
