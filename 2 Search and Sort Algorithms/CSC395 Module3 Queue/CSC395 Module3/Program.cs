@@ -11,7 +11,7 @@ namespace CSC395_Module3
         static void Main(string[] args)
         {
             // Read user input.
-            //string path = @"input.txt";
+            string path = @"input2.txt";
 
             // Problem 1 Let Q be a non - empty queue, and let S be an empty stack.
             // This C# program reverses the order of the elements in Q, using S.
@@ -21,11 +21,11 @@ namespace CSC395_Module3
 
             // Read the entries from input.txt (one line per entry) and store them into an array.
             // Each copy call bubbleReverseSort, selectionReverseSort, mergeReverseSort, quickReverseSort. 
-            //string[] myQArr = Utility.ReadFromFile(path);
+            string[] myQArr = Utility.ReadFromFile(path);
 
 
 
-            string[] myQArr = { "1","2","3","4","5","6","7","8" };
+            //string[] myQArr = { "1","2","3","4","5","6","7","8" };
 
             // Display the contents of myQArr.
             Console.Write("Array contents before: ");
