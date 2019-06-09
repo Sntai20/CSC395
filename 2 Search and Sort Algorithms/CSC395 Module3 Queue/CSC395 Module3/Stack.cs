@@ -22,12 +22,10 @@ namespace CSC395_Module3
             myStackData.RemoveFirst();
         }
 
-
         public string Peek()
         {
             return myStackData.first.value;
         }
-
 
         //ctor  
         public Stack()
