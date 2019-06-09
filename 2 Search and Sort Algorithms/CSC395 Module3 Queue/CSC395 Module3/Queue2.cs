@@ -6,9 +6,9 @@ namespace CSC395_Module3
     public class Queue2
     {
         //data
-        LinkedList<int> myQueueData;
+        LinkedList<string> myQueueData;
         //methods
-        public void Enqueue(int val)
+        public void Enqueue(string val)
         {
             myQueueData.AddFirst(val);
         }
@@ -28,7 +28,7 @@ namespace CSC395_Module3
         //ctor
         public Queue2()
         {
-            myQueueData = new LinkedList<int>();
+            myQueueData = new LinkedList<string>();
         }
     }
 }

@@ -10,46 +10,38 @@ namespace CSC395_Module3
     {
         static void Main(string[] args)
         {
-            // Problem 1 Let Q be a non - empty queue, and let S be an empty stack.
-            // This C# program reverses the order of the elements in Q, using S.
-
-            // Make a queue named Q with numbers 1-8.
-            Queue2 Q = new Queue2();
-            int[] myQArr = { 1, 2, 3, 4, 5, 6, 7, 8 };
-
-            // Display the contents of myQArr.
-            Console.Write("Array contents before: ");
-            foreach (int val in myQArr)
-                Console.Write(val + " ");
-
-            // Make a stack named S.
-            Stack S = new Stack();
-
-            // Enqueue the numbers to the queue, then push the values into the stack.
-            Console.WriteLine();
-            foreach (int val in myQArr)
+            try
             {
-                Q.Enqueue(val);
-                Console.Write($"Enqueue {val} into the queue, then "); 
-                Console.WriteLine($"Push {val} on to the stack ");
-                S.Push(val);
+                // Read user input from this file.
+                string inputPath = @"input.txt";
+
+                // Write program output to this file.
+                string outputPath = @"output.txt";
+
+                // To store contents in myQarr array, 
+                // read contents one line per entry from input.txt.
+                string[] myQArr = Utility.ReadFromFile(inputPath);
+
+                // To reverse the contents of input.txt, 
+                // enqueue contents into a queue then push contents into a stack 
+                // and finally pop contents out in reverse order.
+                Utility.ReverseFileContentsWithQueueAndStack(myQArr);
+
+                // Write the contents of the entries from input.txt 
+                // (one line per entry) and store them into an array.
+                Utility.WriteToFile(outputPath, myQArr);
+
+                // Display the contents of myQArr.
+                Console.Write($"Success! File contents from {inputPath} " +
+                    $"reversed and saved to file {outputPath}.");
             }
-
-            // To reverses the order of the elements in Q, pop element off of S.
-            for (int i = 0; i < myQArr.Length; i++)
+            catch (System.IO.DirectoryNotFoundException)
             {
-                myQArr[i] = S.Peek();
-                S.Pop();
+                Console.WriteLine("File input path could not be found.");
             }
-
-            // Display the contents of myQArr.
-            Console.Write("Array contents after: ");
-            foreach (int val in myQArr)
-                Console.Write(val + " ");
-            while (!S.IsEmpty())
+            catch (SystemException)
             {
-                Console.WriteLine(S.Peek());
-                S.Pop();
+                Console.WriteLine("Something went wrong.");
             }
         }
     }
