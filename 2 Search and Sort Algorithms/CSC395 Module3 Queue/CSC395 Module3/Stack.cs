@@ -32,6 +32,5 @@ namespace CSC395_Module3
         {
             myStackData = new SinglyLinkedList();
         }
-
     }
 }

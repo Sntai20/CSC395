@@ -61,5 +61,21 @@ namespace CSC395_Module3
                 File.WriteAllLines(outputPath, myQArr, Encoding.UTF8);
             }
         }
+
+        // Problem 3 Implement FIFO using two stacks.
+        public void ComplicatedQueue(string[] myQArr)
+        {
+            // Create StackOne.
+            TwoStacksQueue S1 = new TwoStacksQueue();
+            // Create StackTwo.
+            TwoStacksQueue S2 = new TwoStacksQueue();
+
+            // To store contents into stack S1, use the push method.
+
+            // To reverse the order, pop S1 contents and push to stack S2.
+
+            // To complete the FIFO process, pop S2 contents.
+
+        }
     }
 }
