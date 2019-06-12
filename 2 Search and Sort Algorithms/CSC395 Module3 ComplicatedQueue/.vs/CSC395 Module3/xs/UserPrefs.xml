@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{D5416C46-3F7D-47AE-B5B1-21764F48F23F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="CSC395 Module3/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CSC395 Module3/Utility.cs">
     <Files>
-      <File FileName="CSC395 Module3/Program.cs" Line="26" Column="17" />
+      <File FileName="CSC395 Module3/Program.cs" Line="31" Column="26" />
       <File FileName="CSC395 Module3/Utility.cs" Line="35" Column="9" />
       <File FileName="CSC395 Module3/TwoStacksQueue.cs" Line="47" Column="13" />
     </Files>
@@ -10,7 +10,7 @@
         <State name="__root__">
           <Node name="CSC395 Module3" expanded="True">
             <Node name="CSC395 Module3" expanded="True">
-              <Node name="Program.cs" selected="True" />
+              <Node name="Utility.cs" selected="True" />
             </Node>
           </Node>
         </State>
