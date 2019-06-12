@@ -1,14 +1,12 @@
 ﻿<Properties StartupConfiguration="{D5416C46-3F7D-47AE-B5B1-21764F48F23F}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="CSC395 Module3/TwoStacksQueue.cs">
     <Files>
-      <File FileName="CSC395 Module3/Program.cs" Line="25" Column="1" />
-      <File FileName="CSC395 Module3/Node.cs" Line="13" Column="27" />
-      <File FileName="CSC395 Module3/Queue2.cs" Line="31" Column="13" />
+      <File FileName="CSC395 Module3/Program.cs" Line="29" Column="1" />
+      <File FileName="CSC395 Module3/Utility.cs" Line="25" Column="87" />
+      <File FileName="CSC395 Module3/Stack.cs" Line="34" Column="10" />
+      <File FileName="CSC395 Module3/TwoStacksQueue.cs" Line="20" Column="32" />
+      <File FileName="CSC395 Module3/Queue2.cs" Line="6" Column="24" />
       <File FileName="CSC395 Module3/SinglyLinkedList.cs" Line="64" Column="86" />
-      <File FileName="CSC395 Module3/Utility.cs" Line="68" Column="1" />
-      <File FileName="CSC395 Module3 Queue Status" />
-      <File FileName="CSC395 Module3/Stack.cs" Line="34" Column="10" NotebookId="1" />
-      <File FileName="CSC395 Module3/TwoStacksQueue.cs" Line="12" Column="28" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
