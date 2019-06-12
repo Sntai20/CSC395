@@ -50,7 +50,6 @@
     <Compile Include="Node.cs" />
     <Compile Include="SinglyLinkedList.cs" />
     <Compile Include="Utility.cs" />
-    <Compile Include="TwoStacksQueue.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
