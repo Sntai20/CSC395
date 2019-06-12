@@ -5,13 +5,18 @@ namespace CSC395_Module3
 {
     public class Queue2
     {
-        //data
+        // Data
+        // O(1)
         LinkedList<string> myQueueData;
-        //methods
+
+        // Methods
+        // O(1)
         public void Enqueue(string val)
         {
             myQueueData.AddFirst(val);
         }
+
+        // O(1)
         public void Dequeue()
         {
             myQueueData.RemoveLast();

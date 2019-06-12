@@ -33,6 +33,7 @@ namespace CSC395_Module3
             // Make a stack named S to store the contents of the Q.
             Stack S = new Stack();
 
+            // O(n)
             // Enqueue the numbers to the queue, then push the values into the stack.
             foreach (var val in myQArr)
             {
@@ -40,12 +41,15 @@ namespace CSC395_Module3
                 S.Push(val);
             }
 
+            // O(n)
             // To reverses the order of the elements in Q, pop element off of S.
             for (var i = 0; i < myQArr.Length; i++)
             {
                 myQArr[i] = S.Peek();
                 S.Pop();
             }
+
+            // O(n)
             while (!S.IsEmpty())
             {
                 Console.WriteLine(S.Peek());

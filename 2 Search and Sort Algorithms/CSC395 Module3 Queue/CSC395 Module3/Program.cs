@@ -22,6 +22,7 @@ namespace CSC395_Module3
                 // read contents one line per entry from input.txt.
                 string[] myQArr = Utility.ReadFromFile(inputPath);
 
+                // Problem 1
                 // To reverse the contents of input.txt, 
                 // enqueue contents into a queue then push contents into a stack 
                 // and finally pop contents out in reverse order.
@@ -31,7 +32,7 @@ namespace CSC395_Module3
                 // (one line per entry) and store them into an array.
                 Utility.WriteToFile(outputPath, myQArr);
 
-                // Display the contents of myQArr.
+                // Display completed comment.
                 Console.Write($"Success! File contents from {inputPath} " +
                 $"reversed and saved to file {outputPath}.");
             }
