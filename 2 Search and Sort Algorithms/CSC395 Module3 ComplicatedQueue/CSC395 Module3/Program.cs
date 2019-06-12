@@ -22,10 +22,10 @@ namespace CSC395_Module3
                 // read contents one line per entry from input.txt.
                 string[] myQArr = Utility.ReadFromFile(inputPath);
 
-                // To reverse the contents of input.txt, 
-                // enqueue contents into a queue then push contents into a stack 
-                // and finally pop contents out in reverse order.
-                Utility.ReverseFileContentsWithQueueAndStack(myQArr);
+                // Problem 3 Implement FIFO using two stacks.
+                // To enqueue and dequeue the contents of input.txt, 
+                // use the ComplicatedQueue.
+                Utility.ComplicatedQueue(myQArr);
 
                 // Write the contents of the entries from input.txt 
                 // (one line per entry) and store them into an array.
@@ -33,7 +33,7 @@ namespace CSC395_Module3
 
                 // Display the contents of myQArr.
                 Console.Write($"Success! File contents from {inputPath} " +
-                $"reversed and saved to file {outputPath}.");
+                $"have been saved to file {outputPath}.");
             }
             catch (System.IO.DirectoryNotFoundException)
             {
