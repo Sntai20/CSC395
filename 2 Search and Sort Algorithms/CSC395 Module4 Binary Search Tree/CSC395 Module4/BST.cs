@@ -39,8 +39,8 @@ namespace CSC395_Module4
             root = null;
         }
 
-        /// Methods Summary: IsEmpty, Create, Insert, Find, Delete, Traverse, Max, Min.
-        /// Traversal, Search, Height, Number of leaf nodes
+        /// Methods Summary: Traversal, Search, Height, Number of leaf nodes 
+        /// IsEmpty, Create, Insert, Find, Delete, Traverse, Max, Min.
         public bool isEmpty()
         {
             return root == null;
@@ -197,8 +197,37 @@ namespace CSC395_Module4
         }
 
         // TODO 10 Traversal: PrintInOrder, PrintPreOrder, PrintPostOrder
+        public int PrintPreOrder(Node current)
+        {
+            throw new Exception("Not implemented.");
+        }
+
+        public int PrintInOrder(Node current)
+        {
+            throw new Exception("Not implemented.");
+        }
+
+        public int PrintPostOrder(Node current)
+        {
+            throw new Exception("Not implemented.");
+        }
+
         // TODO 10 Search(for a value in the tree): bool search(str studName)
+        public bool Search(Node current)
+        {
+            throw new Exception("Not implemented.");
+        }
+
         // TODO 20 Height of Binary Tree:  int height()
+        public int Height()
+        {
+            throw new Exception("Not implemented.");
+        }
+
         // TODO 20 Number of leaf nodes: int numLeafNodes()
+        public int numLeafNodes()
+        {
+            throw new Exception("Not implemented.");
+        }
     }
 }
