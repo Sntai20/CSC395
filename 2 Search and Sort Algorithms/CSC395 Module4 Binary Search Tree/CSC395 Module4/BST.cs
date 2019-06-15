@@ -41,18 +41,18 @@ namespace CSC395_Module4
 
         /// Methods Summary: Traversal, Search, Height, Number of leaf nodes 
         /// IsEmpty, Create, Insert, Find, Delete, Traverse, Max, Min.
-        public bool isEmpty()
+        public bool IsEmpty()
         {
             return root == null;
         }
 
-        public void insert(int newVal)
+        public void Insert(int newVal)
         {
             //create a new node
             Node newNode = new Node(newVal);
 
 
-            if (isEmpty())
+            if (IsEmpty())
             {
                 root = newNode;
             }
@@ -88,9 +88,9 @@ namespace CSC395_Module4
             }
         }
 
-        public int max()
+        public int Max()
         {
-            if (isEmpty())
+            if (IsEmpty())
                 throw new Exception("you can't find max in an empty BST!");
             else
             {
@@ -102,9 +102,9 @@ namespace CSC395_Module4
             }
         }
 
-        public int min()
+        public int Min()
         {
-            if (isEmpty())
+            if (IsEmpty())
                 throw new Exception("empty ,,, min ....");
             else
             {
@@ -116,9 +116,9 @@ namespace CSC395_Module4
             }
         }
 
-        public bool contains(int key)
+        public bool Contains(int key)
         {
-            if (isEmpty())
+            if (IsEmpty())
                 return false;
             else
             {
@@ -139,9 +139,9 @@ namespace CSC395_Module4
             }
         }
 
-        public bool contains2(int key)
+        public bool Contains2(int key)
         {
-            if (isEmpty())
+            if (IsEmpty())
                 return false;
             else
             {
@@ -166,33 +166,33 @@ namespace CSC395_Module4
             }
         }
 
-        public void printPreOrder()
+        public void PrintPreOrder()
         {
-            preOrderHelper(root);
+            PreOrderHelper(root);
         }
 
-        public void preOrderHelper(Node current)
+        public void PreOrderHelper(Node current)
         {
             if (current != null)
             {
                 Console.Write(current.value + " ");//N
-                preOrderHelper(current.left);    //L
-                preOrderHelper(current.right);   //R
+                PreOrderHelper(current.left);    //L
+                PreOrderHelper(current.right);   //R
             }
         }
 
-        public void printInOrder()
+        public void PrintInOrder()
         {
-            printInOrderHelper(root);
+            PrintInOrderHelper(root);
         }
 
-        public void printInOrderHelper(Node current) //LNR
+        public void PrintInOrderHelper(Node current) //LNR
         {
             if (current != null)
             {
-                printInOrderHelper(current.left);
+                PrintInOrderHelper(current.left);
                 Console.Write(current.value + " ");
-                printInOrderHelper(current.right);
+                PrintInOrderHelper(current.right);
             }
         }
 

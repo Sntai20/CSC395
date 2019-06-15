@@ -17,26 +17,26 @@ namespace CSC395_Module4
 
             BST myTree = new BST();
             //myTree.isEmpty();
-            myTree.insert(7);
-            myTree.insert(6);
-            myTree.insert(9);
-            myTree.insert(7);
-            myTree.insert(7);
-            myTree.insert(7);
-            myTree.insert(11);
+            myTree.Insert(7);
+            myTree.Insert(6);
+            myTree.Insert(9);
+            myTree.Insert(7);
+            myTree.Insert(7);
+            myTree.Insert(7);
+            myTree.Insert(11);
 
-            Console.WriteLine("MIN = " + myTree.min());
-            Console.WriteLine("MAX = "+ myTree.max());
-            Console.WriteLine(myTree.contains(3));
-            Console.WriteLine(myTree.contains(12));
-            Console.WriteLine(myTree.contains(7));
-
-            Console.WriteLine();
-            myTree.printPreOrder();
-
+            Console.WriteLine("MIN = " + myTree.Min());
+            Console.WriteLine("MAX = "+ myTree.Max());
+            Console.WriteLine(myTree.Contains(3));
+            Console.WriteLine(myTree.Contains(12));
+            Console.WriteLine(myTree.Contains(7));
 
             Console.WriteLine();
-            myTree.printInOrder();
+            myTree.PrintPreOrder();
+
+
+            Console.WriteLine();
+            myTree.PrintInOrder();
         }
     }
 }
