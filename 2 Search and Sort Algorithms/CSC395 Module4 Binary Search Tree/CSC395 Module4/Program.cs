@@ -37,6 +37,18 @@ namespace CSC395_Module4
 
             Console.WriteLine();
             myTree.PrintInOrder();
+
+
+            Console.WriteLine();
+            myTree.PrintPostOrder();
+
+            Console.WriteLine();
+            Console.WriteLine();
+            myTree.Search(9);
+
+            Console.WriteLine();
+            myTree.Search(3);
+
         }
     }
 }

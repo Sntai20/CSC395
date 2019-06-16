@@ -166,11 +166,20 @@ namespace CSC395_Module4
             }
         }
 
+        // TODO 10 Traversal: PrintPreOrder, PrintInOrder, PrintPostOrder
+        /// PreOrder Summary (NLR): To sort the BST, begin with the root.
+        /// PrintPreOrder method will call the PreOrderHelper method
+        /// and pass the root position.
         public void PrintPreOrder()
         {
             PreOrderHelper(root);
         }
 
+        /// PreOrderHelper Summary: Steps 1-4
+        /// 1: Begin with root as the current position.
+        /// 2: If the current node value is not null, print the value.
+        /// 3: To print all the values on the left, split and repeat steps 1-4.
+        /// 4: To print all the values on the right, split and repeat steps 1-4.
         public void PreOrderHelper(Node current)
         {
             if (current != null)
@@ -181,53 +190,105 @@ namespace CSC395_Module4
             }
         }
 
+        /// InOrder Summary (LNR): To sort the BST, begin with the root.
+        /// PrintInOrder method will call the InOrderHelper method
+        /// and pass the root position.
         public void PrintInOrder()
         {
-            PrintInOrderHelper(root);
+            InOrderHelper(root);
         }
 
-        public void PrintInOrderHelper(Node current) //LNR
+        /// InOrderHelper Summary: Steps 1-4
+        /// 1: Begin with root as the current position.
+        /// 2: If the current node value is not null, go to step 3.
+        /// 3: Print the left value, then node value, then the right value.
+        /// 4: To print all the values on the tree, split and repeat steps 1-4.
+        public void InOrderHelper(Node current) //LNR
         {
             if (current != null)
             {
-                PrintInOrderHelper(current.left);
+                InOrderHelper(current.left);
                 Console.Write(current.value + " ");
-                PrintInOrderHelper(current.right);
+                InOrderHelper(current.right);
             }
         }
 
-        // TODO 10 Traversal: PrintInOrder, PrintPreOrder, PrintPostOrder
-        public int PrintPreOrder(Node current)
+        /// PostOrder Summary (LRN): To sort the BST, begin with the root.
+        /// PrintPostOrder method will call the PostOrderHelper method
+        /// and pass the root position.
+        public void PrintPostOrder()
         {
-            throw new Exception("Not implemented.");
+            PostOrderHelper(root);
         }
 
-        public int PrintInOrder(Node current)
+        /// PostOrderHelper Summary: Steps 1-4
+        /// 1: Begin with root as the current position.
+        /// 2: If the current node value is not null, go to step 3.
+        /// 3: Print the left value, then the right value, then node value.
+        /// 4: To print all the values on the tree, split and repeat steps 1-4.
+        public void PostOrderHelper(Node current)
         {
-            throw new Exception("Not implemented.");
-        }
-
-        public int PrintPostOrder(Node current)
-        {
-            throw new Exception("Not implemented.");
+            if (current != null)
+            {
+                PostOrderHelper(current.left);
+                PostOrderHelper(current.right);
+                Console.Write(current.value + " ");
+            }
         }
 
         // TODO 10 Search(for a value in the tree): bool search(str studName)
-        public bool Search(Node current)
+        /// Search Summary: To search the BST, begin with the root.
+        /// Search method will call the SearchHelper method and
+        /// pass the root position.
+        public void Search(int key)
         {
-            throw new Exception("Not implemented.");
+            SearchHelper(key, root);
+            //Node current = root;
+            //Console.WriteLine($"{key} found at node {current.value}");
+        }
+
+        /// SearchHelper Summary: Steps 1-4
+        /// 1: Begin with root as the current position.
+        /// 2: If the current node value is not null, go to step 3.
+        /// 3: Is the key in the current node?
+        /// 4: To print all the values on the tree, split and repeat steps 1-4.
+        public Node SearchHelper(int key, Node current)
+        {
+            if (current != null)
+            {
+                if (key == current.value)
+                {
+                    Console.WriteLine($"Success! {current.value}");
+                }
+                else if (key < current.value)
+                {
+                    SearchHelper(key, current.left);
+                    //current = current.left;
+                }
+                else if (key > current.value)
+                {
+                    SearchHelper(key, current.right);
+                    //current = current.right;
+                }
+            }
+
+            else
+            {
+                Console.WriteLine($"Unsuccessful, {key} appears to be missing from the tree.");
+            }
+            return current;
         }
 
         // TODO 20 Height of Binary Tree:  int height()
-        public int Height()
-        {
-            throw new Exception("Not implemented.");
-        }
+        //public int Height()
+        //{
+        //    throw new Exception("Not implemented.");
+        //}
 
-        // TODO 20 Number of leaf nodes: int numLeafNodes()
-        public int numLeafNodes()
-        {
-            throw new Exception("Not implemented.");
-        }
+        //// TODO 20 Number of leaf nodes: int numLeafNodes()
+        ////public int numLeafNodes()
+        //{
+        //    throw new Exception("Not implemented.");
+        //}
     }
 }
