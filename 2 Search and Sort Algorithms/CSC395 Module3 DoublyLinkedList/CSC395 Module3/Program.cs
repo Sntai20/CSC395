@@ -11,29 +11,30 @@ namespace CSC395_Module3
         static void Main(string[] args)
         {
             // Create a new node.
-            Node myNode = new Node(" ");
+            //Node myNode = new Node(" ");
 
             DoublyLinkedList myList = new DoublyLinkedList();
             //Console.WriteLine(myList.IsEmpty());
-            myList.AddFirst("Legos"); 
-            myList.AddFirst("Building"); 
+            myList.AddFirst("Legos");
+            myList.AddFirst("Building");
 
             myList.AddLast("Legos");
-            myList.AddLast("Today");
-            //myList.AddFirst(2);
-            //myList.AddFirst(3);
+            myList.AddLast("Tomorrow's");
+            myList.AddLast("Legos");
             myList.PrintList();
 
-            //myList.Insert(-20);
+            myList.RemoveDuplicates();
             //myList.Insert(10);
             //myList.Insert(23);
-            //myList.Insert(-21);
+            myList.Insert("Today");
             //myList.PrintList();
-
-            //myList.delete(10);
-            myList.RemoveDuplicates();
-            //myList.IsPalidrome();
+            myList.Delete("Legos");
             myList.PrintList();
+
+            bool PalindromeTest = myList.IsPalindrome();
+            Console.WriteLine("\n");
+            Console.WriteLine($"Palindrome test results: {PalindromeTest}");
+            
         }
     }
 }

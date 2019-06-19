@@ -11,75 +11,61 @@ namespace CSC395_Module4
     /// inserts and looks up information indexed by some key.
     public class BST
     {
-        /// Node Summary: To make a BST and store values, we need a node class.
-        /// 
-        /// A binary tree is made up of nodes that can only have two children.
-        public class Node
-        {
-            // Data values are stored in type int.
-            public int value;
-            public Node left, right;
-
-            // Constructor
-            public Node(int newVal)
-            {
-                value = newVal;
-                //left = null;
-                //right = null;
-            }
-        }
 
         /// Tree Data Summary: To create a tree,
         /// we need the top node called the root node.
-        Node root;
+        //TreeNode root;
+        StudentNode rootStudent;
 
         // BST Constructor creates a tree with one node pointing to null.
         public BST()
         {
-            root = null;
+            rootStudent = null;
         }
 
-        /// Methods Summary: IsEmpty, Create, Insert, Find, Delete, Traverse, Max, Min.
-        /// Traversal, Search, Height, Number of leaf nodes
-        public bool isEmpty()
+        /// Methods Summary: Traversal, Search, Height, Number of leaf nodes 
+        /// IsEmpty, Create, Insert, Find, Delete, Traverse, Max, Min.
+        public bool IsEmpty()
         {
-            return root == null;
+            return rootStudent == null;
         }
 
-        public void insert(int newVal)
+        // O(log(n))
+        // Insert(a new value into the tree while maintaining the BST structure): void insert(Student newStudent)
+        public void Insert(string studentName)
         {
             //create a new node
-            Node newNode = new Node(newVal);
+            StudentNode newStudent = new StudentNode(studentName, major:"undecided" , state:"unknown");
 
 
-            if (isEmpty())
+            if (IsEmpty())
             {
-                root = newNode;
+                rootStudent = newStudent;
             }
             else //root is not null!
             {
                 //create a pointer to move around
-                Node current = root;
+                StudentNode current = rootStudent;
 
                 while (true)
                 {
-                    if (newVal <= current.value)
+                    if (string.Compare(studentName,current.studentName) <=0)
                     {
-                        if (current.left != null)
-                            current = current.left;//move left
+                        if (current.leftStudent != null)
+                            current = current.leftStudent;//move left
                         else
                         {
-                            current.left = newNode;
+                            current.leftStudent = newStudent;
                             break;
                         }
                     }
                     else
                     {
-                        if (current.right != null)
-                            current = current.right;//move right
+                        if (current.rightStudent != null)
+                            current = current.rightStudent;//move right
                         else
                         {
-                            current.right = newNode;
+                            current.rightStudent = newStudent;
                             break;
                         }
                     }
@@ -88,50 +74,112 @@ namespace CSC395_Module4
             }
         }
 
-        public int max()
+        // O(log(n))
+        // Insert(a new value into the tree while maintaining the BST structure): void insert(str studName, str major, str originState)
+        internal void Insert(string studentName, string studentMajor, string originState)
         {
-            if (isEmpty())
+            // Declare and instantiate stud variable.
+            StudentNode newStudentNode = new StudentNode(studentName, studentMajor, originState);
+
+            if (rootStudent == null)
+            {
+                // When the tree is empty, the basenode will return the value of stud variable
+                rootStudent = newStudentNode;
+            }
+
+            else
+            {
+                StudentNode current = rootStudent;
+
+                while (true)
+                {
+                    // The conditional statement will check to see if the compared string values return
+                    // less than 0 to sort them alphabetically.
+                    if (string.Compare(studentName, current.studentName) < 0)
+                    {
+                        // If current.left node does not return null, assign current
+                        // to current.left node.
+                        if (current.leftStudent != null)
+                        {
+                            current = current.leftStudent;
+                        }
+
+                        else
+                        {
+                            // Else, current.left will be the stud node and the loop
+                            // will break.
+                            current.leftStudent = newStudentNode;
+                            break;
+                        }
+                    }
+
+                    // If the studName is greater (i.e., input is "Jack" and current
+                    // node or basenode is "Dan"), execute the following code.
+                    else
+                    {
+                        // If current.right node does not return null, assign
+                        // current node to current.right node.
+                        if (current.rightStudent != null)
+                        {
+                            current = current.rightStudent;
+                        }
+
+                        else
+                        {
+                            // Else, current.right will equal stud node and break
+                            // the loop.
+                            current.rightStudent = newStudentNode;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        public string Max()
+        {
+            if (IsEmpty())
                 throw new Exception("you can't find max in an empty BST!");
             else
             {
-                Node current = root;
-                while (current.right != null)//as long as there is a node to the right, I move there ...
-                    current = current.right;
+                StudentNode current = rootStudent;
+                while (current.rightStudent != null)//as long as there is a node to the right, I move there ...
+                    current = current.rightStudent;
 
-                return current.value;
+                return current.studentName;
             }
         }
 
-        public int min()
+        public string Min()
         {
-            if (isEmpty())
+            if (IsEmpty())
                 throw new Exception("empty ,,, min ....");
             else
             {
-                Node current = root;
-                while (current.left != null)
-                    current = current.left;
+                StudentNode current = rootStudent;
+                while (current.leftStudent != null)
+                    current = current.leftStudent;
 
-                return current.value;
+                return current.studentName;
             }
         }
 
-        public bool contains(int key)
+        public bool Contains(string key)
         {
-            if (isEmpty())
+            if (IsEmpty())
                 return false;
             else
             {
-                Node current = root;
+                StudentNode current = rootStudent;
 
                 while (current != null)
                 {
-                    if (key == current.value)
+                    if (key == current.studentName)
                         return true;
-                    else if (key < current.value)
-                        current = current.left; //move left
+                    else if (string.Compare(key, current.studentName) < 0)
+                        current = current.leftStudent; //move left
                     else
-                        current = current.right;//move right
+                        current = current.rightStudent;//move right
                 }
 
                 //current is null
@@ -139,22 +187,22 @@ namespace CSC395_Module4
             }
         }
 
-        public bool contains2(int key)
+        public bool Contains2(string key)
         {
-            if (isEmpty())
+            if (IsEmpty())
                 return false;
             else
             {
-                Node current = root;
+                StudentNode current = rootStudent;
 
                 while (current != null)
                 {
-                    if (key == current.value)
+                    if (key == current.studentName)
                         break;
-                    else if (key < current.value)
-                        current = current.left; //move left
+                    else if (string.Compare(key, current.studentName) < 0)
+                        current = current.leftStudent; //move left
                     else
-                        current = current.right;//move right
+                        current = current.rightStudent;//move right
                 }
 
                 return current != null;
@@ -166,39 +214,177 @@ namespace CSC395_Module4
             }
         }
 
-        public void printPreOrder()
+        // TODO 10 Traversal: PrintPreOrder, PrintInOrder, PrintPostOrder
+        /// PreOrder Summary (NLR): To sort the BST, begin with the root.
+        /// PrintPreOrder method will call the PreOrderHelper method
+        /// and pass the root position.
+        public void PrintPreOrder()
         {
-            preOrderHelper(root);
+            PreOrderHelper(rootStudent);
         }
 
-        public void preOrderHelper(Node current)
-        {
-            if (current != null)
-            {
-                Console.Write(current.value + " ");//N
-                preOrderHelper(current.left);    //L
-                preOrderHelper(current.right);   //R
-            }
-        }
-
-        public void printInOrder()
-        {
-            printInOrderHelper(root);
-        }
-
-        public void printInOrderHelper(Node current) //LNR
+        /// O(n)
+        /// PreOrderHelper Summary: Steps 1-4
+        /// 1: Begin with root as the current position.
+        /// 2: If the current node value is not null, print the value.
+        /// 3: To print all the values on the left, split and repeat steps 1-4.
+        /// 4: To print all the values on the right, split and repeat steps 1-4.
+        public void PreOrderHelper(StudentNode current)
         {
             if (current != null)
             {
-                printInOrderHelper(current.left);
-                Console.Write(current.value + " ");
-                printInOrderHelper(current.right);
+                Console.Write(current.studentName + " ");//N
+                PreOrderHelper(current.leftStudent);    //L
+                PreOrderHelper(current.rightStudent);   //R
             }
         }
 
-        // TODO 10 Traversal: PrintInOrder, PrintPreOrder, PrintPostOrder
+        /// InOrder Summary (LNR): To sort the BST, begin with the root.
+        /// PrintInOrder method will call the InOrderHelper method
+        /// and pass the root position.
+        public void PrintInOrder()
+        {
+            InOrderHelper(rootStudent);
+        }
+
+        /// O(n)
+        /// InOrderHelper Summary: Steps 1-4
+        /// 1: Begin with root as the current position.
+        /// 2: If the current node value is not null, go to step 3.
+        /// 3: Print the left value, then node value, then the right value.
+        /// 4: To print all the values on the tree, split and repeat steps 1-4.
+        public void InOrderHelper(StudentNode current)
+        {
+            if (current != null)
+            {
+                InOrderHelper(current.leftStudent);
+                Console.Write(current.studentName + " ");
+                InOrderHelper(current.rightStudent);
+            }
+        }
+
+        /// PostOrder Summary (LRN): To sort the BST, begin with the root.
+        /// PrintPostOrder method will call the PostOrderHelper method
+        /// and pass the root position.
+        public void PrintPostOrder()
+        {
+            PostOrderHelper(rootStudent);
+        }
+
+        /// O(n)
+        /// PostOrderHelper Summary: Steps 1-4
+        /// 1: Begin with root as the current position.
+        /// 2: If the current node value is not null, go to step 3.
+        /// 3: Print the left value, then the right value, then node value.
+        /// 4: To print all the values on the tree, split and repeat steps 1-4.
+        public void PostOrderHelper(StudentNode current)
+        {
+            if (current != null)
+            {
+                PostOrderHelper(current.leftStudent);
+                PostOrderHelper(current.rightStudent);
+                Console.Write(current.studentName + " ");
+            }
+        }
+
         // TODO 10 Search(for a value in the tree): bool search(str studName)
+        /// O(n)
+        /// Search Summary: To search the BST, begin with root.
+        /// Search method will call the SearchHelper method and
+        /// pass the root position.
+        public void Search(string studentName)
+        {
+            SearchHelper(studentName, rootStudent);
+        }
+
+        /// SearchHelper Summary: Steps 1-4
+        /// 1: If the current node value is not null, go to step 2.
+        /// 2: Does the key match the current node value?
+        /// 3: Is the key less than the current value? Split left and repeat steps 1-4.
+        /// 4: Is the key greater than the current value? Split right and repeat steps 1-4.
+        public StudentNode SearchHelper(string studentName, StudentNode current)
+        {
+            if (current != null)
+            {
+                if (studentName == current.studentName)
+                {
+                    Console.WriteLine($"Success! {current.studentName}");
+                }
+                else if (string.Compare(studentName, current.studentName) < 0)
+                {
+                    SearchHelper(studentName, current.leftStudent);
+                }
+                else if (string.Compare(studentName, current.studentName) > 0)
+                {
+                    SearchHelper(studentName, current.rightStudent);
+                }
+            }
+
+            else
+            {
+                Console.WriteLine($"Unsuccessful, {studentName} appears to be missing from the tree.");
+            }
+            return current;
+        }
+
         // TODO 20 Height of Binary Tree:  int height()
+        /// Height Summary: O(log(n))
+        /// To determine the height of a tree find the longest path,
+        /// then add the number of edges from the root to the leaf node.
+        public int Height()
+        {
+            return HeightHelper(rootStudent);
+        }
+
+        // O(log(n))
+        public int HeightHelper(StudentNode current)
+        {
+
+            if (current == null)
+            {
+                return 0;
+            }
+            else
+            {
+                int leftSubtreeHeight = HeightHelper(current.leftStudent);
+                int rightSubtreeHeight = HeightHelper(current.rightStudent);
+
+                if (leftSubtreeHeight > rightSubtreeHeight)
+                {
+                    return leftSubtreeHeight + 1;
+                }
+                else
+                {
+                    return rightSubtreeHeight + 1;
+                }
+            }      
+        }
+
         // TODO 20 Number of leaf nodes: int numLeafNodes()
+        public int GetNumberOfLeafNodes()
+        {
+            return GetNumberOfLeafNodes(rootStudent);
+        }
+
+        /// <summary>
+        /// O(n) Add the leaf nodes in each subtree to get the total.
+        /// </summary>
+        public int GetNumberOfLeafNodes(StudentNode current)
+        {
+
+            if (current == null)
+            {
+                return 0;
+            }
+            else if (current.leftStudent == null && current.rightStudent == null)
+            {
+                return 1;
+            }
+            else
+            {
+                return GetNumberOfLeafNodes(current.leftStudent) + GetNumberOfLeafNodes(current.rightStudent);
+            }
+
+        }
     }
 }
