@@ -10,45 +10,12 @@ namespace CSC395_Module4
     {
         static void Main(string[] args)
         {
-            // TODO Create a Tree class that implements the binary search tree(BST) 
-            // Traversal, Search, Height, Number of leaf nodes methods and stores objects of class Student.
+            // Implement a binary search tree (BST) that stores integer values into the TreeNode class.
+            //Utility.CreateBSTWithIntegers();
 
-            //BST.Node myNode = new BST.Node();
-
-            BST myTree = new BST();
-            //myTree.isEmpty();
-            myTree.Insert(7);
-            myTree.Insert(6);
-            myTree.Insert(9);
-            myTree.Insert(7);
-            myTree.Insert(7);
-            myTree.Insert(7);
-            myTree.Insert(11);
-
-            Console.WriteLine("MIN = " + myTree.Min());
-            Console.WriteLine("MAX = "+ myTree.Max());
-            Console.WriteLine(myTree.Contains(3));
-            Console.WriteLine(myTree.Contains(12));
-            Console.WriteLine(myTree.Contains(7));
-
-            Console.WriteLine();
-            myTree.PrintPreOrder();
-
-
-            Console.WriteLine();
-            myTree.PrintInOrder();
-
-
-            Console.WriteLine();
-            myTree.PrintPostOrder();
-
-            Console.WriteLine();
-            Console.WriteLine();
-            myTree.Search(9);
-
-            Console.WriteLine();
-            myTree.Search(3);
-
+            // Implement a binary search tree (BST) that stores objects into the Student class.
+            // Traversal, Search, Height, Number of leaf nodes methods.
+            Utility.CreateBSTWithStudents();
         }
     }
 }

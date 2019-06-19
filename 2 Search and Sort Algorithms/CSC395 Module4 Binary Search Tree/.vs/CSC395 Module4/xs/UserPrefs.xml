@@ -1,16 +1,14 @@
 ﻿<Properties StartupConfiguration="{89C30514-BF40-486A-A22E-C16D2C31EFAF}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="CSC395 Module4/TreeNode.cs">
     <Files>
-      <File FileName="CSC395 Module4/Program.cs" Line="17" Column="1" />
-      <File FileName="CSC395 Module4/BST.cs" Line="230" Column="53" />
-      <File FileName="CSC395 Module4/Student.cs" Line="24" Column="52" />
+      <File FileName="CSC395 Module4/TreeNode.cs" Line="19" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CSC395 Module4" expanded="True">
             <Node name="CSC395 Module4" expanded="True">
-              <Node name="BST.cs" selected="True" />
+              <Node name="TreeNode.cs" selected="True" />
             </Node>
           </Node>
         </State>

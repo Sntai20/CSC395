@@ -7,14 +7,14 @@ namespace CSC395_Module3
     {
         /// Data: DoublyLinkedList can implement the Node class as the first node
         /// in the LinkedList.
-        public Node first;
-        public Node last;
+        public Node firstNode;
+        public Node lastNode;
 
         // Constructor to initialize the first element in the linked list.
         public DoublyLinkedList()
         {
-            first = null;
-            last = null;
+            firstNode = null;
+            lastNode = null;
         }
 
         /// Methods: DoublyLinkedList can perform the following methods
@@ -25,37 +25,53 @@ namespace CSC395_Module3
             //    return true;
             //else
             //    return false;
-            return first == null;
+            return firstNode == null;
         }
 
-        public void AddFirst(string value)
-        {
-            Node newNode = new Node(value);
-            newNode.next = first;
-            newNode. = null;
-            if (doubleLinkedList.head != null)
-            {
-                doubleLinkedList.head.prev = newNode;
-            }
-            doubleLinkedList.head = newNode;
-            first = newNode;
-        }
-
-        public void AddLast(string val)
+        public void AddLast(string nodeValue)
         {
             if (IsEmpty())
-                AddFirst(val);
+                AddFirst(nodeValue);
             else
             {
-                Node newNode = new Node(val);
+                Node newNode = new Node(nodeValue);
 
-                Node current = first;
-                while (current.next != null)
-                {
-                    current = current.next;
-                }
+                lastNode.next = newNode;
+                newNode.previous = lastNode;
+                lastNode = newNode;
+            }
+        }
 
-                current.next = newNode;
+        public void AddFirst(string nodeValue)
+        {
+            Node newNode = new Node(nodeValue);
+            if (IsEmpty())
+            {
+                firstNode = newNode;
+                lastNode = newNode;
+            }
+            else
+            {
+                firstNode.previous = newNode;
+                newNode.next = firstNode;
+                firstNode = newNode;
+            }
+        }
+
+        public void RemoveLast()
+        {
+            if (IsEmpty())
+                throw new IndexOutOfRangeException("you can't remove last from an emtpy list");
+            else if (firstNode == lastNode)
+            {
+                firstNode = null;
+                lastNode = null;
+            }
+
+            else
+            {
+                lastNode = lastNode.previous;
+                lastNode.next = null;
             }
         }
 
@@ -63,70 +79,70 @@ namespace CSC395_Module3
         {
             if (IsEmpty())
                 throw new IndexOutOfRangeException("you can't remove first from an emtpy list");
-            else
-                first = first.next;
-
-        }
-
-        public void RemoveLast()
-        {
-            if (IsEmpty())
-                throw new IndexOutOfRangeException("you can't remove last from an emtpy list");
-            else if (first.next == null)//we have only one element in the list
+            else if (firstNode == lastNode)
             {
-                first = null; //empty the list
+                firstNode = null;
+                lastNode = null;
             }
+
             else
             {
-                Node current = first;
-                while (current.next.next != null)
-                    current = current.next;
-                current.next = null;//remove the last node by making the next to last node point to null 
+                firstNode = firstNode.next;
+                firstNode.previous = null;
             }
         }
 
-        public void delete(string val)
+        public void Delete(string nodeValue)
         {
             if (IsEmpty())
                 throw new Exception("you can't delete from an empty list");
-            else if (val == first.value)
+            else if (nodeValue == firstNode.nodeValue)
                 RemoveFirst();
             else
             {
-                Node curr = first;
+                Node current = firstNode;
+                Node newCurrent = firstNode;
 
-                while (curr.next != null && curr.next.value != val)
-                    curr = curr.next;
-                if (curr.next == null) //we didn't find the value val in the list
+                while (current.next != null && current.next.nodeValue != nodeValue)
+                    current = current.next;
+                if (current.next == null) //we didn't find the value val in the list
                     throw new Exception("we didn't find  the element in the list");
                 else
-                    curr.next = curr.next.next;
+                {
+                    newCurrent = current.next.next;
+                    current.next = newCurrent;
+                    newCurrent.previous = current;
+                }
             }
         }
 
-        public void Insert(string val)//it assumes the list is sorted!!!!
+        public void Insert(string nodeValue)//it assumes the list is sorted!!!!
         {
-            if (IsEmpty() || string.Compare(val, first.value) >= 0)
+            if (IsEmpty() || string.Compare(nodeValue, firstNode.nodeValue) >= 0)
             {
-                AddFirst(val);
+                AddFirst(nodeValue);
             }
             else
             {
-                Node newNode = new Node(val); //create a new node
-                Node curr = first;
-                while (curr.next != null && string.Compare(curr.next.value, val) < 0)
+                Node newNode = new Node(nodeValue); //create a new node
+                Node curr = firstNode;
+                while (curr.next != null && string.Compare(curr.next.nodeValue, nodeValue) > 0)
                     curr = curr.next;
-                //if (curr.next == null) //ran to the end of the list
-                //   curr.next = newNode ;
-                //else
-                //{
-                //    //link in the new node
-                //    newNode.next = curr.next;
-                //    curr.next = newNode;
-                //}
+                
                 //link in the new node
                 newNode.next = curr.next;
+                newNode.previous = curr;
                 curr.next = newNode;
+
+                if (newNode.next != null) //ran to the end of the list
+                {
+                    newNode.next.previous = newNode;
+                }
+
+                if (newNode.next == null)
+                {
+                    lastNode = newNode;
+                }
             }
         }
 
@@ -138,10 +154,10 @@ namespace CSC395_Module3
                 Console.WriteLine("the list is empty!!!");
             else
             {
-                Node current = first;
+                Node current = firstNode;
                 while (current != null)
                 {
-                    Console.Write(current.value + "  ");
+                    Console.Write(current.nodeValue + "  ");
                     current = current.next;
                 }
             }
@@ -153,7 +169,7 @@ namespace CSC395_Module3
         public void RemoveDuplicates()
         {
             // Pointer to head of the list.
-            Node curr = first;
+            Node curr = firstNode;
 
             // Pointer to store the next  
             //pointer of a node to be deleted
@@ -168,7 +184,7 @@ namespace CSC395_Module3
             {
 
                 // Compare current node with the next node
-                if (string.Compare(curr.value, curr.next.value) == 0)
+                if (string.Compare(curr.nodeValue, curr.next.nodeValue) == 0)
                 {
                     next_next = curr.next.next;
                     curr.next = null;
@@ -179,5 +195,27 @@ namespace CSC395_Module3
             }
         }
 
+        public bool IsPalindrome() // O(n)
+        {
+            if (IsEmpty()) 
+                Console.WriteLine("the list is empty!!!"); 
+
+            bool PalindromeTest = true; 
+
+            Node comparer1 = firstNode; 
+            Node comparer2 = lastNode; 
+
+            while (comparer1 != comparer2 && comparer1.previous != comparer2) // O(n)
+            {
+                if (comparer1.nodeValue != comparer2.nodeValue) 
+                {
+                    PalindromeTest = false;
+                    break;
+                }
+                comparer1 = comparer1.next; 
+                comparer2 = comparer2.previous; 
+            }
+            return PalindromeTest; 
+        }
     }
 }

@@ -46,7 +46,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BST.cs" />
-    <Compile Include="Student.cs" />
+    <Compile Include="TreeNode.cs" />
+    <Compile Include="StudentNode.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
