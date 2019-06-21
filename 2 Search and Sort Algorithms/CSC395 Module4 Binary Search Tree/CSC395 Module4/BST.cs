@@ -32,10 +32,10 @@ namespace CSC395_Module4
 
         // O(log(n))
         // Insert(a new value into the tree while maintaining the BST structure): void insert(Student newStudent)
-        public void Insert(string studentName)
+        public void Insert(StudentNode newStudent)
         {
             //create a new node
-            StudentNode newStudent = new StudentNode(studentName, major:"undecided" , state:"unknown");
+            //StudentNode newStudentNode = new StudentNode(studentName, major: "undecided", state: "unknown");
 
 
             if (IsEmpty())
@@ -49,7 +49,7 @@ namespace CSC395_Module4
 
                 while (true)
                 {
-                    if (string.Compare(studentName,current.studentName) <=0)
+                    if (string.Compare(newStudent.studentName,current.studentName) <=0)
                     {
                         if (current.leftStudent != null)
                             current = current.leftStudent;//move left

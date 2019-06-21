@@ -57,6 +57,9 @@ namespace CSC395_Module4
             myStudentTree.Insert("Nick", "English", "MD"); 
             myStudentTree.Insert("Ann", "ME", "WA");
 
+            StudentNode myStudentNode = new StudentNode("Antonio", "CS", "CA");
+            myStudentTree.Insert(myStudentNode);
+
             //Console.WriteLine("MIN = " + myStudentTree.Min());
             //Console.WriteLine("MAX = " + myStudentTree.Max());
             //Console.WriteLine(myStudentTree.Contains("Alice"));
