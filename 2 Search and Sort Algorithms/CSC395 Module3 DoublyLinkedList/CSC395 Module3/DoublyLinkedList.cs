@@ -28,20 +28,21 @@ namespace CSC395_Module3
             return firstNode == null;
         }
 
+        // O(n)
         public void AddLast(string nodeValue)
         {
             if (IsEmpty())
                 AddFirst(nodeValue);
             else
             {
-                Node newNode = new Node(nodeValue);
-
-                lastNode.next = newNode;
-                newNode.previous = lastNode;
-                lastNode = newNode;
+                Node current = lastNode;
+                lastNode = new Node(nodeValue);
+                current.next = lastNode;
+                lastNode.previous = current;
             }
         }
 
+        // O(n)
         public void AddFirst(string nodeValue)
         {
             Node newNode = new Node(nodeValue);
@@ -52,97 +53,10 @@ namespace CSC395_Module3
             }
             else
             {
-                firstNode.previous = newNode;
-                newNode.next = firstNode;
-                firstNode = newNode;
-            }
-        }
-
-        public void RemoveLast()
-        {
-            if (IsEmpty())
-                throw new IndexOutOfRangeException("you can't remove last from an emtpy list");
-            else if (firstNode == lastNode)
-            {
-                firstNode = null;
-                lastNode = null;
-            }
-
-            else
-            {
-                lastNode = lastNode.previous;
-                lastNode.next = null;
-            }
-        }
-
-        public void RemoveFirst()
-        {
-            if (IsEmpty())
-                throw new IndexOutOfRangeException("you can't remove first from an emtpy list");
-            else if (firstNode == lastNode)
-            {
-                firstNode = null;
-                lastNode = null;
-            }
-
-            else
-            {
-                firstNode = firstNode.next;
-                firstNode.previous = null;
-            }
-        }
-
-        public void Delete(string nodeValue)
-        {
-            if (IsEmpty())
-                throw new Exception("you can't delete from an empty list");
-            else if (nodeValue == firstNode.nodeValue)
-                RemoveFirst();
-            else
-            {
                 Node current = firstNode;
-                Node newCurrent = firstNode;
-
-                while (current.next != null && current.next.nodeValue != nodeValue)
-                    current = current.next;
-                if (current.next == null) //we didn't find the value val in the list
-                    throw new Exception("we didn't find  the element in the list");
-                else
-                {
-                    newCurrent = current.next.next;
-                    current.next = newCurrent;
-                    newCurrent.previous = current;
-                }
-            }
-        }
-
-        public void Insert(string nodeValue)//it assumes the list is sorted!!!!
-        {
-            if (IsEmpty() || string.Compare(nodeValue, firstNode.nodeValue) >= 0)
-            {
-                AddFirst(nodeValue);
-            }
-            else
-            {
-                Node newNode = new Node(nodeValue); //create a new node
-                Node curr = firstNode;
-                while (curr.next != null && string.Compare(curr.next.nodeValue, nodeValue) > 0)
-                    curr = curr.next;
-
-                //link in the new node
-                newNode.next = curr.next;
-                newNode.previous = curr;
-                curr.next = newNode;
-
-                if (newNode.next != null) //ran to the end of the list
-                {
-                    newNode.next.previous = newNode;
-                }
-
-                if (newNode.next == null)
-                {
-                    lastNode = newNode;
-                }
+                firstNode = newNode;
+                current.previous = firstNode;
+                firstNode.next = current;
             }
         }
 
@@ -163,38 +77,9 @@ namespace CSC395_Module3
             }
         }
 
-        // Problem 3: Add a new method void RemoveDuplicates() to remove 
-        // all duplicates from the linked list. Do not use an extra array, use 
-        // only O(1) extra memory for this operation.What is the running time?
-        public void RemoveDuplicates()
-        {
-            // Pointer to head of the list.
-            Node curr = firstNode;
-
-            // Pointer to store the next  
-            //pointer of a node to be deleted
-            Node next_next;
-
-            // Throw exception if the list is empty 
-            if (IsEmpty())
-                throw new Exception("you can't delete from an empty list");
-
-            // Traverse list till the last node
-            while (curr.next != null)
-            {
-
-                // Compare current node with the next node
-                if (string.Compare(curr.nodeValue, curr.next.nodeValue) == 0)
-                {
-                    next_next = curr.next.next;
-                    curr.next = null;
-                    curr.next = next_next;
-                }
-                else // advance if no deletion 
-                    curr = curr.next;
-            }
-        }
-
+        // This part really confuses me.
+        // I remember there being two pointers to the first node, but
+        // I don't remember enough to implement this method for a doubly linked list.
         public bool IsPalindrome() // O(n)
         {
             if (IsEmpty())

@@ -1,16 +1,16 @@
 ﻿<Properties StartupConfiguration="{D5416C46-3F7D-47AE-B5B1-21764F48F23F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="CSC395 Module3/SinglyLinkedList.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="CSC395 Module3/Program.cs" Line="35" Column="35" />
-      <File FileName="CSC395 Module3/SinglyLinkedList.cs" Line="129" Column="93" />
-      <File FileName="CSC395 Module3/Node.cs" />
+      <File FileName="CSC395 Module3/Program.cs" Line="21" Column="37" />
+      <File FileName="CSC395 Module3/DoublyLinkedList.cs" Line="82" Column="26" />
+      <File FileName="CSC395 Module3/Node.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CSC395 Module3" expanded="True">
             <Node name="CSC395 Module3" expanded="True">
-              <Node name="SinglyLinkedList.cs" selected="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
