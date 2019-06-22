@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CSC395_Module5
 {
-    public class Graph
+    public class Graph_AdjacencyMatrix
     {
         class Node
         {
@@ -156,7 +156,7 @@ namespace CSC395_Module5
         }
 
         //ctor
-        public Graph()
+        public Graph_AdjacencyMatrix()
         {
             vertices = new List<Node>();
 
