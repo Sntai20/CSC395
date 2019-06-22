@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{D5416C46-3F7D-47AE-B5B1-21764F48F23F}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="CSC395 Module3/DoublyLinkedList.cs">
     <Files>
       <File FileName="CSC395 Module3/Program.cs" Line="21" Column="37" />
       <File FileName="CSC395 Module3/DoublyLinkedList.cs" Line="82" Column="26" />
@@ -10,7 +10,7 @@
         <State name="__root__">
           <Node name="CSC395 Module3" expanded="True">
             <Node name="CSC395 Module3" expanded="True">
-              <Node name="Program.cs" selected="True" />
+              <Node name="DoublyLinkedList.cs" selected="True" />
             </Node>
           </Node>
         </State>
