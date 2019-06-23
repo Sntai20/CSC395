@@ -40,7 +40,8 @@ namespace CSC395_Module5
 
         //data
         //Graph = {Vertices, Edges}
-        List<Node<T>> vertices { get; set; } = new List<Node<T>>();
+        //List<Node<T>> vertices { get; set; } = new List<Node<T>>();
+        List<Node<T>> vertices = new List<Node<T>>();
         //Array<List>
         //int[,] edges;//we'll use this for the adjacency matrix
         //List<string> Neighbors;
@@ -55,7 +56,19 @@ namespace CSC395_Module5
             Console.WriteLine();
             Console.WriteLine("Printing the vertices ...");
             foreach (var node in vertices)
-                Console.Write(node.Data + " ");
+            {
+                Console.Write(node.Label + " ");
+                //node.Neighbors.ToString;
+                foreach (var neighbor in node)
+                {
+                    Console.WriteLine(neighbor);
+                    //foreach (var match in neighbor)
+                    //{
+                    //    Console.WriteLine(match);
+                    //}
+                    
+                }
+            }
         }
 
         ////print edges
@@ -106,6 +119,7 @@ namespace CSC395_Module5
         //        }
         //    }
         //}
+
         //add vertex
         public void AddVertex(T newLabel)
         {
@@ -132,7 +146,7 @@ namespace CSC395_Module5
         //    //}
         //}
 
-        ////add edge
+        //add edge
         //public void AddEdge(string A, string B, int weight = 1) //adds an edge between A and B
         //{
         //    int i = -1;
@@ -159,7 +173,69 @@ namespace CSC395_Module5
 
         //    edges[j, i] = weight; //for undirected:
         //}
+        public void AddEdge(string from, string to)
+        {
+            Node<T> nodeFrom;
+            Node<T> nodeTo;
+            //var nodeFrom = from;
+            //Node<T>. nodeFrom = from;
+            //public Node<T> to;
+            //int weight = 1;
+            //AddEdgeHelper(from, to, weight, vertices);
+            Console.WriteLine("Printing the vertices ...");
+            foreach (var node in vertices)
+            {
+               
 
+                Console.WriteLine(node.Label);
+                if (!node.Label.Equals(from))
+                {
+                    Console.WriteLine("from not matched add the to node to neighbor");
+                    nodeFrom = node;
+                    node.Neighbors.Add(nodeFrom);
+                    Console.WriteLine($"{nodeFrom.Label} added");
+                    
+                }
+
+                if (!node.Label.Equals(to))
+                {
+                    Console.WriteLine("to matched add the from node to neighbor");
+                    nodeTo = node;
+                    node.Neighbors.Add(nodeTo);
+                    //Console.WriteLine($"{node.Neighbors} added");
+                }
+
+            }
+                
+        }
+
+        //public void AddEdgeHelper(string from, string to, int weight, List<Node<T>> vertices)
+        //{
+            
+        //    //public Node<T> from;
+        //    //public Node<T> to;
+        //    //foreach(var node in vertices)
+        //    //        Console.Write(node.Label + " ");
+
+
+        //    //Node<T> nodeFrom = [from];
+        //    //Node<T> nodeTo = Nodes[to];
+        //    //int i = nodeFrom.Neighbors.IndexOf(nodeTo);
+        //    //if (i >= 0)
+        //    //{
+        //    //    Edge<T> edge = new Edge<T>()
+        //    //    {
+        //    //        From = nodeFrom,
+        //    //        To = nodeTo,
+        //    //        Weight = i < nodeFrom.Weights.Count
+        //    //            ? nodeFrom.Weights[i] : 0
+        //    //    };
+        //    //    return edge;
+        //    //}
+
+        //    //return null;
+            
+        //}
         ////remove edge
         //public void RemoveEdge(string A, string B)
         //{

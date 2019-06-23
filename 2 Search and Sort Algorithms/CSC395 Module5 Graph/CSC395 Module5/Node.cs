@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace CSC395_Module5
 {
-    public class Node<T>
+    public class Node<T> : IEnumerable<T>
     {
         //public int Index { get; set; }
-        public T Data { get; set; }
-        public List<Node<T>> Neighbors { get; set; } = new List<Node<T>>();
+        public T Label { get; set; }
+        //public T Data { get; set; }
+        //public List<Node<T>> Neighbors { get; set; } = new List<Node<T>>();
+        public List<Node<T>> Neighbors = new List<Node<T>>();
         //public List<int> Weights { get; set; } = new List<int>();
 
         //public override string ToString()
@@ -19,8 +22,31 @@ namespace CSC395_Module5
 
         public Node(T newLbl)
         {
-            Data = newLbl;
+            Label = newLbl;
         }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            foreach (var neighbor in Neighbors)
+            {
+                
+                //ToString(Label);
+                    yield return neighbor.Label;
+            }
+            //while (Neighbors.Count != 0)
+            //{
+            //    //Neighbors.ToString = ret;
+            //    //T ret;
+            //    yield return Neighbors..Label;
+            //}
+      
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
     }
 }
 /// <summary>
