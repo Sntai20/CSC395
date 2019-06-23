@@ -44,7 +44,7 @@ namespace CSC395_Module5
 
 
 
-            myALGraph.AddEdge("Alice", "Bob");
+            //myALGraph.AddEdge("Alice", "Bob");
             //myGraph.AddEdge("Alice", "Alice");
 
             myALGraph.PrintVertices();

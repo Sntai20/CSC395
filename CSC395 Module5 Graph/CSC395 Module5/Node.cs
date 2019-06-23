@@ -4,22 +4,25 @@ using System.Collections.Generic;
 
 namespace CSC395_Module5
 {
+    /// <summary>
+    /// To build a Graph class we need to build a node class to
+    /// store the nodes of a graph. To store the adjacent neighbors we need a list in each node.
+    /// Example. The Alice node stores a list of 
+    /// </summary>
     public class Node<T> : IEnumerable<T>
     {
-        //public int Index { get; set; }
+        // Two data memebers.
+        // To identify the node, use the label with type T.
         public T Label { get; set; }
-        //public T Data { get; set; }
-        //public List<Node<T>> Neighbors { get; set; } = new List<Node<T>>();
-        public List<Node<T>> Neighbors = new List<Node<T>>();
+        // To keep track if the node was visited.
+        public bool wasVisited;
+
+        // To store an adjaceny list.
+        public Edge<T> myNeighbors = new Edge<T>();
+        //public List<Node<T>> Neighbors = new List<Node<T>>();
         //public List<int> Weights { get; set; } = new List<int>();
 
-        //public override string ToString()
-        //{
-        //    return $"Node with index {Index}: {Data}, 
-        //        neighbors: { Neighbors.Count}
-        //    "; 
-        //}
-
+        // Node Constructor
         public Node(T newLbl)
         {
             Label = newLbl;
@@ -27,11 +30,11 @@ namespace CSC395_Module5
 
         public IEnumerator<T> GetEnumerator()
         {
-            foreach (var neighbor in Neighbors)
+            foreach (var neighbor in myNeighbors)
             {
                 
                 //ToString(Label);
-                    yield return neighbor.Label;
+                    yield return neighbor;
             }
             //while (Neighbors.Count != 0)
             //{
@@ -49,16 +52,13 @@ namespace CSC395_Module5
 
     }
 }
-/// <summary>
-/// To store the adjacent neighbors we need a list in each node.
-/// Example. The Alice node stores a list of 
-/// </summary>
+
 //class Node
 //{
 //    //public string Label { get; set; }
 //    public List<string> Label { get; set; }
 
-//    //public bool wasVisited;
+
 //    public Node(string newLbl)//, List<string> newEdge)
 //    {
 //        //Label = newLbl;

@@ -1,13 +1,29 @@
 ﻿<Properties StartupConfiguration="{9FA83A10-A947-45B9-92AC-EA8E1FBF1A1D}|Default">
   <MonoDevelop.Ide.ItemProperties.CSC395_220Module5 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CSC395 Module5/Graph_AdjacencyList.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="CSC395 Module5/Program.cs" Line="41" Column="37" />
-      <File FileName="CSC395 Module5/Graph_AdjacencyMatrix.cs" Line="17" Column="1" />
-      <File FileName="CSC395 Module5/Graph_AdjacencyList.cs" Line="195" Column="50" />
-      <File FileName="CSC395 Module5/Node.cs" />
-      <File FileName="CSC395 Module5/Edge.cs" />
+      <File FileName="CSC395 Module5/Program.cs" Line="47" Column="49" />
+      <File FileName="CSC395 Module5/Graph_AdjacencyMatrix.cs" />
+      <File FileName="CSC395 Module5/Graph_AdjacencyList.cs" Line="204" Column="50" />
+      <File FileName="CSC395 Module5/Node.cs" Line="37" Column="42" />
+      <File FileName="CSC395 Module5/Edge.cs" Line="37" Column="36" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CSC395 Module5" expanded="True">
+            <Node name="CSC395 Module5" expanded="True">
+              <Node name="Graph_AdjacencyList.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State name="__root__">
+          <Node name="CSC395 Module5" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

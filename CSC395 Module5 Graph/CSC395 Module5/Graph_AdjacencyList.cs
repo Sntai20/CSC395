@@ -192,7 +192,7 @@ namespace CSC395_Module5
                 {
                     Console.WriteLine("from not matched add the to node to neighbor");
                     nodeFrom = node;
-                    node.Neighbors.Add(nodeFrom);
+                    //node.Neighbors.Add(nodeFrom);
                     Console.WriteLine($"{nodeFrom.Label} added");
                     
                 }
@@ -201,7 +201,7 @@ namespace CSC395_Module5
                 {
                     Console.WriteLine("to matched add the from node to neighbor");
                     nodeTo = node;
-                    node.Neighbors.Add(nodeTo);
+                    //node.Neighbors.Add(nodeTo);
                     //Console.WriteLine($"{node.Neighbors} added");
                 }
 
