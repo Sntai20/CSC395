@@ -18,9 +18,9 @@ namespace CSC395_Module5
         public bool wasVisited;
 
         // To store an adjaceny list.
-        public Edge<T> myNeighbors = new Edge<T>();
-        //public List<Node<T>> Neighbors = new List<Node<T>>();
-        //public List<int> Weights { get; set; } = new List<int>();
+        //public Edge<T> myNeighbors = new Edge<T>();
+        public List<Node<T>> Neighbors = new List<Node<T>>();
+        //public List<int> Weights = new List<int>();
 
         // Node Constructor
         public Node(T newLbl)
@@ -28,13 +28,18 @@ namespace CSC395_Module5
             Label = newLbl;
         }
 
+        public void addNeighbor(Node<T> nodeTo)
+        {
+            Neighbors.Add(nodeTo);
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
-            foreach (var neighbor in myNeighbors)
+            foreach (var neighbor in Neighbors)
             {
                 
                 //ToString(Label);
-                    yield return neighbor;
+                    yield return neighbor.Label;
             }
             //while (Neighbors.Count != 0)
             //{
