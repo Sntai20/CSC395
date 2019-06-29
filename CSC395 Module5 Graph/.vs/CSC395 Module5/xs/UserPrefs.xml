@@ -3,10 +3,10 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="CSC395 Module5/Graph_AdjacencyList.cs">
     <Files>
       <File FileName="CSC395 Module5/Program.cs" Line="46" Column="31" />
-      <File FileName="CSC395 Module5/Graph_AdjacencyMatrix.cs" Line="17" Column="1" />
+      <File FileName="CSC395 Module5/Graph_AdjacencyMatrix.cs" />
       <File FileName="CSC395 Module5/Graph_AdjacencyList.cs" Line="175" Column="48" />
-      <File FileName="CSC395 Module5/Node.cs" Line="22" Column="62" />
-      <File FileName="CSC395 Module5/Edge.cs" Line="44" Column="8" />
+      <File FileName="CSC395 Module5/Node.cs" />
+      <File FileName="CSC395 Module5/Edge.cs" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

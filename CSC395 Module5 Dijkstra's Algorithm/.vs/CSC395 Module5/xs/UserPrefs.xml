@@ -1,0 +1,34 @@
+﻿<Properties StartupConfiguration="{9FA83A10-A947-45B9-92AC-EA8E1FBF1A1D}|Default">
+  <MonoDevelop.Ide.ItemProperties.CSC395_220Module5 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CSC395 Module5/Graph.cs">
+    <Files>
+      <File FileName="CSC395 Module5/Program.cs" Line="20" Column="28" />
+      <File FileName="CSC395 Module5/GraphBuilder.cs" Line="79" Column="33" />
+      <File FileName="CSC395 Module5/Graph.cs" Line="134" Column="50" />
+      <File FileName="CSC395 Module5/Edge.cs" Line="12" Column="55" />
+      <File FileName="CSC395 Module5/Node.cs" Line="2" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CSC395 Module5" expanded="True">
+            <Node name="CSC395 Module5" expanded="True">
+              <Node name="Graph.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State name="__root__">
+          <Node name="CSC395 Module5" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
