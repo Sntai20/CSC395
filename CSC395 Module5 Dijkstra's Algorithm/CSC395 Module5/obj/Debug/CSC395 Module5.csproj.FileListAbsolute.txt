@@ -12,3 +12,7 @@ C:/Users/Razvan/source/repos/CSC395 Module5/CSC395 Module5/obj/Debug/CSC395 Modu
 /Users/antonio/Documents/GitHub/CSC395/CSC395 Module5 Dijkstra's Algorithm/CSC395 Module5/obj/Debug/CSC395 Module5.csproj.CoreCompileInputs.cache
 /Users/antonio/Documents/GitHub/CSC395/CSC395 Module5 Dijkstra's Algorithm/CSC395 Module5/obj/Debug/CSC395 Module5.exe
 /Users/antonio/Documents/GitHub/CSC395/CSC395 Module5 Dijkstra's Algorithm/CSC395 Module5/obj/Debug/CSC395 Module5.pdb
+/Users/antonio/Documents/GitHub/CSC395/CSC395 Module5 Dijkstra's Algorithm/CSC395 Module5/bin/Debug/Priority Queue.dll
+/Users/antonio/Documents/GitHub/CSC395/CSC395 Module5 Dijkstra's Algorithm/CSC395 Module5/bin/Debug/Priority Queue.pdb
+/Users/antonio/Documents/GitHub/CSC395/CSC395 Module5 Dijkstra's Algorithm/CSC395 Module5/bin/Debug/Priority Queue.xml
+/Users/antonio/Documents/GitHub/CSC395/CSC395 Module5 Dijkstra's Algorithm/CSC395 Module5/obj/Debug/CSC395 Module5.csproj.CopyComplete

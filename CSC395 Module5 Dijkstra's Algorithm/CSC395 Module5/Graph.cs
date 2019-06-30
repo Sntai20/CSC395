@@ -1,27 +1,31 @@
 ﻿using System;
+using Priority_Queue;
 using System.Collections.Generic;
 
 namespace CSC395_Module5
 {
+    // Graph = {Vertices, Edges}
     public class Graph<T>
     {
+        // Data
         private bool _isDirected = false;
         private bool _isWeighted = false;
-        public List<Node<T>> Nodes { get; set; } = new List<Node<T>>();
+        public List<Node<T>> Verticies { get; set; } = new List<Node<T>>();
 
-
+        // Graph Constructor
         public Graph(bool isDirected, bool isWeighted)
         {
             _isDirected = isDirected;
             _isWeighted = isWeighted;
         }
 
+        // Methods
         public Edge<T> this[int from, int to]
         {
             get
             {
-                Node<T> nodeFrom = Nodes[from];
-                Node<T> nodeTo = Nodes[to];
+                Node<T> nodeFrom = Verticies[from];
+                Node<T> nodeTo = Verticies[to];
                 int i = nodeFrom.Neighbors.IndexOf(nodeTo);
                 if (i >= 0)
                 {
@@ -39,19 +43,19 @@ namespace CSC395_Module5
             }
         }
 
-        public Node<T> AddNode(T value)
+        public Node<T> AddVertex(T value)
         {
             Node<T> node = new Node<T>() { Data = value };
-            Nodes.Add(node);
+            Verticies.Add(node);
             UpdateIndices();
             return node;
         }
 
-        public void RemoveNode(Node<T> nodeToRemove)
+        public void RemoveVertex(Node<T> nodeToRemove)
         {
-            Nodes.Remove(nodeToRemove);
+            Verticies.Remove(nodeToRemove);
             UpdateIndices();
-            foreach (Node<T> node in Nodes)
+            foreach (Node<T> node in Verticies)
             {
                 RemoveEdge(node, nodeToRemove);
             }
@@ -91,7 +95,7 @@ namespace CSC395_Module5
         public List<Edge<T>> GetEdges()
         {
             List<Edge<T>> edges = new List<Edge<T>>();
-            foreach (Node<T> from in Nodes)
+            foreach (Node<T> from in Verticies)
             {
                 for (int i = 0; i < from.Neighbors.Count; i++)
                 {
@@ -111,7 +115,7 @@ namespace CSC395_Module5
         private void UpdateIndices()
         {
             int i = 0;
-            Nodes.ForEach(n => n.Index = i++);
+            Verticies.ForEach(n => n.Index = i++);
         }
 
         private void Fill<Q>(Q[] array, Q value)
@@ -124,17 +128,17 @@ namespace CSC395_Module5
 
         public List<Edge<T>> GetShortestPathDijkstra(Node<T> source, Node<T> target)
         {
-            int[] previous = new int[Nodes.Count];
+            int[] previous = new int[Verticies.Count];
             Fill(previous, -1);
 
-            int[] distances = new int[Nodes.Count];
+            int[] distances = new int[Verticies.Count];
             Fill(distances, int.MaxValue);
             distances[source.Index] = 0;
 
             SimplePriorityQueue<Node<T>> nodes = new SimplePriorityQueue<Node<T>>();
-            for (int i = 0; i < Nodes.Count; i++)
+            for (int i = 0; i < Verticies.Count; i++)
             {
-                nodes.Enqueue(Nodes[i], distances[i]);
+                nodes.Enqueue(Verticies[i], distances[i]);
             }
 
             while (nodes.Count != 0)
