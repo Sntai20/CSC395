@@ -53,14 +53,14 @@ namespace CSC395_Module5
             graph.AddEdge(Alex, Robert);
 
             // To print the edges
-            Console.WriteLine(Alice.Data.ToString());
-            Console.WriteLine(Bob.Neighbors);
-            Console.WriteLine(Carl.Neighbors);
-            Console.WriteLine(Antonio.Neighbors);
-            Console.WriteLine(Ann.Neighbors);
-            Console.WriteLine(Terrence.Neighbors);
-            Console.WriteLine(Alex.Neighbors);
-            Console.WriteLine(Robert.Neighbors);
+            Console.WriteLine(Alice.ToString());
+            Console.WriteLine(Bob.ToString());
+            Console.WriteLine(Carl.ToString());
+            Console.WriteLine(Antonio.ToString());
+            Console.WriteLine(Ann.ToString());
+            Console.WriteLine(Terrence.ToString());
+            Console.WriteLine(Alex.ToString());
+            Console.WriteLine(Robert.ToString());
 
             // To print the verticies
 
