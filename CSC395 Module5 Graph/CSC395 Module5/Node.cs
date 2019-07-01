@@ -19,6 +19,11 @@ namespace CSC395_Module5
         // To store data of type T, use a property named Data.
         public T Data { get; set; }
 
+        //public Node(T data, int index)
+        //{
+        //    Index = index;
+        //    Data = data;
+        //}
         // To store the references to the adjacent nodes,
         // use the property named Neighbors as an adjaceny list for a specifc node.
         public List<Node<T>> Neighbors { get; set; } = new List<Node<T>>();
