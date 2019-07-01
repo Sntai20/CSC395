@@ -165,6 +165,28 @@ namespace CSC395_Module5
             }
         }
 
+        /// <summary>
+        /// To get each vertex from the graph.
+        /// </summary>
+        /// <returns></returns>
+        public void GetEachVertex()
+        {
+            if (Verticies.Count < 0)
+            {
+                Console.WriteLine("Verticies not found.");
+            }
+            if (Verticies.Count > 0)
+            {
+                foreach (var vertex in Verticies)
+                    Console.WriteLine(vertex.ToString());
+            }
+            Console.WriteLine();
+        }
+
+        /// <summary>
+        /// To get each edge from a vertex in the graph.
+        /// </summary>
+        /// <returns></returns>
         public List<Edge<T>> GetEdges()
         {
             List<Edge<T>> edges = new List<Edge<T>>();

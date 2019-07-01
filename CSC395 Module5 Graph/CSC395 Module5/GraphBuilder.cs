@@ -52,27 +52,19 @@ namespace CSC395_Module5
             graph.AddEdge(Terrence, Alex);
             graph.AddEdge(Alex, Robert);
 
-            // To print the verticies
-            Console.WriteLine(Alice.ToString());
-            Console.WriteLine(Bob.ToString());
-            Console.WriteLine(Carl.ToString());
-            Console.WriteLine(Antonio.ToString());
-            Console.WriteLine(Ann.ToString());
-            Console.WriteLine(Terrence.ToString());
-            Console.WriteLine(Alex.ToString());
-            Console.WriteLine(Robert.ToString());
+            // To print the verticies from the graph.
+            graph.GetEachVertex();
 
             // To print the edges
-            //Console.WriteLine(graph.GetEdges());
 
-            Console.WriteLine("The index values for Antonio's neighbors are: ");
+            Console.WriteLine("Antonio's neighbors are: ");
             foreach (var neighbor in Antonio.Neighbors)
             {
-                
-                Console.Write(neighbor.Index.ToString() + ", ");
-                //Console.WriteLine(graph.GetEdges());
+
+                //Console.Write(neighbor.Index.ToString() + ", ");
+                Console.WriteLine(neighbor.GetNeighbors());
             }
-                
+
 
         }
     }

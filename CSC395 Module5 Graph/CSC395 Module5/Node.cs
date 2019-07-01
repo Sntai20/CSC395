@@ -37,6 +37,21 @@ namespace CSC395_Module5
         // To identify if the nodes has been visited, 
         // use the wasVisited flag.
         //public bool wasVisited;
+
+        // to return the neighbors.
+        public string GetNeighbors()
+        {
+            string myNeighbor;
+            if (Neighbors.Count > 0)
+            {
+                foreach (var neighbor in Neighbors)
+                {
+                    return myNeighbor = neighbor.Data.ToString();
+                }
+            }
+            //else
+                return "No Neighbors Found";
+        }
     }
 }
 
