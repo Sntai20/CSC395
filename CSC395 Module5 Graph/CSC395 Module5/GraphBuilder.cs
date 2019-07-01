@@ -55,10 +55,9 @@ namespace CSC395_Module5
             // To print the verticies from the graph.
             graph.GetEachVertex();
 
-            // To print the edges
-
-            Console.WriteLine("Antonio's neighbors are: ");
-            foreach (var neighbor in Antonio.Neighbors)
+            // To print the edges.
+            Console.WriteLine("Robert's neighbors are: ");
+            foreach (var neighbor in Robert.Neighbors)
             {
 
                 //Console.Write(neighbor.Index.ToString() + ", ");
