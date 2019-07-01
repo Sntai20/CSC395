@@ -9,52 +9,34 @@ namespace CSC395_Module5
     /// store the nodes of a graph. To store the adjacent neighbors we need a list in each node.
     /// Example. The Alice node stores a list of 
     /// </summary>
-    public class Node<T> : IEnumerable<T>
+    public class Node<T> //: IEnumerable<T>
     {
-        // Two data memebers.
-        // To identify the node, use the label with type T.
-        public T Label { get; set; }
-        // To keep track if the node was visited.
-        public bool wasVisited;
+        // Node memebers.
+        // To access the node in a graph using an index
+        // number, store the index number in a property.
+        public int Index { get; set; }
 
-        // To store an adjaceny list.
-        //public Edge<T> myNeighbors = new Edge<T>();
-        public List<Node<T>> Neighbors = new List<Node<T>>();
-        //public List<int> Weights = new List<int>();
+        // To store data of type T, use a property named Data.
+        public T Data { get; set; }
 
-        // Node Constructor
-        public Node(T newLbl)
+        // To store the references to the adjacent nodes,
+        // use the property named Neighbors as an adjaceny list for a specifc node.
+        public List<Node<T>> Neighbors { get; set; } = new List<Node<T>>();
+
+        // To store the weight of the edges, use the property
+        // named Weights as a list.
+        public List<int> Weights { get; set; } = new List<int>();
+
+        // To return the textual representation of an object,
+        // use the ToString method.
+        public override string ToString()
         {
-            Label = newLbl;
+            return $"Node with an Index {Index}: {Data}, neighbors {Neighbors.Count}";
         }
 
-        public void addNeighbor(Node<T> nodeTo)
-        {
-            Neighbors.Add(nodeTo);
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            foreach (var neighbor in Neighbors)
-            {
-                
-                //ToString(Label);
-                    yield return neighbor.Label;
-            }
-            //while (Neighbors.Count != 0)
-            //{
-            //    //Neighbors.ToString = ret;
-            //    //T ret;
-            //    yield return Neighbors..Label;
-            //}
-      
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
+        // To identify if the nodes has been visited, 
+        // use the wasVisited flag.
+        //public bool wasVisited;
     }
 }
 
@@ -69,7 +51,7 @@ namespace CSC395_Module5
 //        //Label = newLbl;
 //        //Edge = newEdge;
 //    }
-//    //public bool wasVisited;
+
 //    public Node(List<string> { newLbl, new)
 //    {
 //        Label = newLbl;

@@ -49,6 +49,7 @@
     <Compile Include="Graph_AdjacencyList.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Edge.cs" />
+    <Compile Include="GraphBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

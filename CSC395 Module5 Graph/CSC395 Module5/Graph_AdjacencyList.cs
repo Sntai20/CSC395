@@ -4,56 +4,219 @@ using System.Collections.Generic;
 namespace CSC395_Module5
 {
     /// <summary>
-    /// To creat a graph we need to have vertices and edges.
-    /// Nodes are used for the vertices.
+    /// To create a graph we need to have vertices and edges.
+    /// Node is another name for a vertex.
     /// Edges represent connections to neighbors.
     /// </summary>
     public class Graph_AdjacencyList<T>
     {
+        // Data
+        private bool _isDirected = false;
+        private bool _isWeighted = false;
+
         /// <summary>
-        /// To store the adjacent neighbors we need a list in each node.
-        /// Example. The Alice node stores a list of 
+        /// Graphs contain a collection of vertices and associated edges.
+        /// Graph = {Vertices, Edges}
         /// </summary>
-        
+        List<Node<T>> Verticies { get; set; } = new List<Node<T>>();
 
-        // Use an Adjacency List instead of an Adjacency Matrix.
-        // For the adjacency list use an array-lists.
-        // Graph_AdjacencyMatrix
-        // Graph_AdjacencyList
-
-        //data
-        //Graph = {Vertices, Edges}
-        //List<Node<T>> vertices { get; set; } = new List<Node<T>>();
-        List<Node<T>> vertices = new List<Node<T>>();
-        
-        //Array<List>
-        //int[,] edges;//we'll use this for the adjacency matrix
-        //List<string> Neighbors;
-
-
-        //int MAX_SIZE;
-
-        //methods
-        //print vertices
-        public void PrintVertices()
+        // Graph Constructor
+        public Graph_AdjacencyList(bool isDirected, bool isWeighted)
         {
-            Console.WriteLine();
-            Console.WriteLine("Printing the vertices ...");
-            foreach (var node in vertices)
+            _isDirected = isDirected;
+            _isWeighted = isWeighted;
+        }
+
+        /// <summary>
+        /// Edge Indexer: To return an instance of the generic Edge class,
+        /// use the indexer member.
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
+        public Edge<T> this[int from, int to]
+        {
+            get
             {
-                Console.Write(node.Label + " ");
-                //node.Neighbors.ToString;
-                //foreach (var neighbor in node)
-                //{
-                //    Console.WriteLine(neighbor);
-                //    //foreach (var match in neighbor)
-                //    //{
-                //    //    Console.WriteLine(match);
-                //    //}
-                    
-                //}
+                Node<T> nodeFrom = Verticies[from];
+                Node<T> nodeTo = Verticies[to];
+                int i = nodeFrom.Neighbors.IndexOf(nodeTo);
+                if (i >= 0)
+                {
+                    Edge<T> edge = new Edge<T>()
+                    {
+                        From = nodeFrom,
+                        To = nodeTo,
+                        Weight = i < nodeFrom.Weights.Count
+                            ? nodeFrom.Weights[i] : 0
+                    };
+                    return edge;
+                }
+
+                return null;
             }
         }
+
+        public Node<T> AddVertex(T value)
+        {
+            Node<T> node = new Node<T>() { Data = value };
+            Verticies.Add(node);
+            UpdateIndices();
+            return node;
+        }
+
+        //add vertex
+        //public void AddVertex(T newLabel)
+        //{
+        //    //if (vertices.Count < MAX_SIZE)
+        //    //{
+        //    Node<T> newNode = new Node<T>(newLabel);
+        //    vertices.Add(newNode);
+        //    //vertices.Add(new Node(newLabel));
+
+        //    //you may want to make sure to add 0s in row = vertices.count-1 and col  = vertices.count-1
+        //    //}
+        //}
+
+        ////add vertex
+        //public void AddVertex(string newLabel, List<string> newEdge)
+        //{
+        //    //if (vertices.Count < MAX_SIZE)
+        //    //{
+        //    Node newNode = new Node(newLabel,newEdge);
+        //    vertices.Add(newNode);
+        //    //vertices.Add(new Node(newLabel));
+
+        //    //you may want to make sure to add 0s in row = vertices.count-1 and col  = vertices.count-1
+        //    //}
+        //}
+
+        public void RemoveVertex(Node<T> nodeToRemove)
+        {
+            Verticies.Remove(nodeToRemove);
+            UpdateIndices();
+            foreach (Node<T> node in Verticies)
+            {
+                RemoveEdge(node, nodeToRemove);
+            }
+        }
+
+        public void AddEdge(Node<T> from, Node<T> to, int weight = 0)
+        {
+            from.Neighbors.Add(to);
+            if (_isWeighted)
+            {
+                from.Weights.Add(weight);
+            }
+
+            if (!_isDirected)
+            {
+                to.Neighbors.Add(from);
+                if (_isWeighted)
+                {
+                    to.Weights.Add(weight);
+                }
+            }
+        }
+
+        //add edge
+        //public void AddEdge(string A, string B, int weight = 1) //adds an edge between A and B
+        //{
+        //    int i = -1;
+        //    for (int k = 0; k < vertices.Count; k++)
+        //        if (vertices[k].Label.Equals(A))
+        //        {
+        //            i = k;
+        //            break;
+        //        }
+
+        //    int j = -1;
+        //    for (int k = 0; k < vertices.Count; k++)
+        //        if (vertices[k].Label.Equals(B))
+        //        {
+        //            j = k;
+        //            break;
+        //        }
+
+        //    //sanity check
+        //    if (i == -1 || j == -1)
+        //        return;
+
+        //    edges[i, j] = weight;
+
+        //    edges[j, i] = weight; //for undirected:
+        //}
+
+        public void RemoveEdge(Node<T> from, Node<T> to)
+        {
+            int index = from.Neighbors.FindIndex(n => n == to);
+            if (index >= 0)
+            {
+                from.Neighbors.RemoveAt(index);
+                if (_isWeighted)
+                {
+                    from.Weights.RemoveAt(index);
+                }
+            }
+        }
+
+        public List<Edge<T>> GetEdges()
+        {
+            List<Edge<T>> edges = new List<Edge<T>>();
+            foreach (Node<T> from in Verticies)
+            {
+                for (int i = 0; i < from.Neighbors.Count; i++)
+                {
+                    Edge<T> edge = new Edge<T>()
+                    {
+                        From = from,
+                        To = from.Neighbors[i],
+                        Weight = i < from.Weights.Count
+                            ? from.Weights[i] : 0
+                    };
+                    edges.Add(edge);
+                }
+            }
+            return edges;
+        }
+
+        private void UpdateIndices()
+        {
+            int i = 0;
+            Verticies.ForEach(n => n.Index = i++);
+        }
+
+        private void Fill<Q>(Q[] array, Q value)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = value;
+            }
+        }
+
+
+        // To store the adjacent neighbors we need a list in each node.
+        //methods
+        //print vertices
+        //public void PrintVertices()
+        //{
+        //    Console.WriteLine();
+        //    Console.WriteLine("Printing the vertices ...");
+        //    foreach (var node in Verticies)
+        //    {
+        //        Console.Write(node.Data + " ");
+        //        //node.Neighbors.ToString;
+        //        //foreach (var neighbor in node)
+        //        //{
+        //        //    Console.WriteLine(neighbor);
+        //        //    //foreach (var match in neighbor)
+        //        //    //{
+        //        //    //    Console.WriteLine(match);
+        //        //    //}
+                    
+        //        //}
+        //    }
+        //}
 
         ////print edges
         //public void PrintEdges()
@@ -104,159 +267,6 @@ namespace CSC395_Module5
         //    }
         //}
 
-        //add vertex
-        public void AddVertex(T newLabel)
-        {
-            //if (vertices.Count < MAX_SIZE)
-            //{
-            Node<T> newNode = new Node<T>(newLabel);
-            vertices.Add(newNode);
-            //vertices.Add(new Node(newLabel));
-
-            //you may want to make sure to add 0s in row = vertices.count-1 and col  = vertices.count-1
-            //}
-        }
-
-        ////add vertex
-        //public void AddVertex(string newLabel, List<string> newEdge)
-        //{
-        //    //if (vertices.Count < MAX_SIZE)
-        //    //{
-        //    Node newNode = new Node(newLabel,newEdge);
-        //    vertices.Add(newNode);
-        //    //vertices.Add(new Node(newLabel));
-
-        //    //you may want to make sure to add 0s in row = vertices.count-1 and col  = vertices.count-1
-        //    //}
-        //}
-
-        //add edge
-        //public void AddEdge(string A, string B, int weight = 1) //adds an edge between A and B
-        //{
-        //    int i = -1;
-        //    for (int k = 0; k < vertices.Count; k++)
-        //        if (vertices[k].Label.Equals(A))
-        //        {
-        //            i = k;
-        //            break;
-        //        }
-
-        //    int j = -1;
-        //    for (int k = 0; k < vertices.Count; k++)
-        //        if (vertices[k].Label.Equals(B))
-        //        {
-        //            j = k;
-        //            break;
-        //        }
-
-        //    //sanity check
-        //    if (i == -1 || j == -1)
-        //        return;
-
-        //    edges[i, j] = weight;
-
-        //    edges[j, i] = weight; //for undirected:
-        //}
-    
-
-        public void AddEdge(string nodeFrom, string nodeTo)
-        {
-            // To create an edge, use the edge class.
-            //Edge<T> newEdge = new Edge<T>();
-            //List<Node<T>> Neighbors = new List<Node<T>>();
-            vertices.Insert()
-
-            Node<T> edgeFrom;
-            Node<T> edgeTo;
-
-
-            foreach (var neighbor in vertices)
-            {
-                neighbor.addNeighbor(nodeFrom);
-                if (neighbor == null)
-                {
-                    Console.WriteLine("Node to not found");
-                    break;
-                }
-                else if (string.Equals(neighbor.Label, nodeFrom))
-                {
-                    edgeFrom = neighbor;
-                    Console.WriteLine($"{edgeFrom} found! What's next?");
-                    edgeFrom.addNeighbor(edgeTo);
-                    //return edgeFrom;
-                }
-                else
-                    Console.WriteLine("not found");
-            }
-
-            foreach (var neighbor in vertices)
-            {
-                if (neighbor == null)
-                {
-                    Console.WriteLine("Node to not found");
-                    break;
-                }
-                else if (string.Equals(neighbor.Label, nodeTo))
-                {
-                    //Node<T> edgeTo;
-                    edgeTo = neighbor;
-                    Console.WriteLine($"{neighbor} found! What's next?");
-                    //return edgeTo;
-
-                }
-                else
-                    Console.WriteLine("not found");
-
-
-                //var edgeTo = string.Compare(neighbor.Label, nodeTo);
-                //if (edgeFrom(neighbor))
-                //{
-                //    //Neighbors.Add(nodeTo);
-                //    neighbor.addMyNeighbor(edgeTo);
-                //    Console.WriteLine(nodeFrom.myNeighbors);
-                //}
-            }
-            //return null;
-            //edgeFrom.addMyNeighbor(edgeTo);
-            //edgeTo.addMyNeighbor(edgeFrom)
-
-            //Node<T> nodeFrom;
-            //Node<T> nodeTo;
-            //from = nodeFrom;
-            //Node<T>. nodeFrom = from;
-            //public Node<T> to;
-            //int weight = 1;
-            //AddEdgeHelper(from, to, weight, vertices);
-
-            // sort of worked last time.
-            //Console.WriteLine("Printing the vertices ...");
-            //foreach (var node in vertices)
-            //{
-
-            //    // Add the neighbor node, if the node label matches
-            //    Console.WriteLine(node.Label);
-            //    if (node.Label.Equals(nodeFrom))
-            //    {
-            //        Console.WriteLine("nodeTo matched add the to node to neighbor");
-            //        //nodeFrom = node;
-            //        Edge<T> myEdge = new Edge<T>();
-            //        //Neighbors.Add(nodeTo);
-            //        Console.WriteLine($"{nodeFrom.Label} added");
-
-            //    }
-
-            //if (!node.Label.Equals(to))
-            //{
-            //    Console.WriteLine("to matched add the from node to neighbor");
-            //    nodeTo = node;
-            //    //node.Neighbors.Add(nodeTo);
-            //    //Console.WriteLine($"{node.Neighbors} added");
-            //}
-
-            //}
-
-        }
-
         
         ////remove edge
         //public void RemoveEdge(string A, string B)
@@ -299,17 +309,6 @@ namespace CSC395_Module5
         //            edges[col, row - 1] = edges[col, row];
         //    }
         //}
-
-        //ctor
-        public Graph_AdjacencyList()
-        {
-            vertices = new List<Node<T>>();
-
-            //MAX_SIZE = 20;//this is the max numb of vertices allowed in the graph - this can be extended later ...
-            //edges = new int[MAX_SIZE, MAX_SIZE];//allocates a 2D block of size MAX_SIZE^2
-            //edges = new List<string>(Neighbor);
-            //edges = new List<
-        }
 
     }
 }

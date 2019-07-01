@@ -10,55 +10,11 @@ namespace CSC395_Module5
     {
         static void Main(string[] args)
         {
-            //Graph_AdjacencyMatrix myGraph = new Graph_AdjacencyMatrix();
+            // Build the class example graph.
+            //GraphBuilder.ClassExample();
 
-            //myGraph.AddVertex("Alice");
-            //myGraph.AddVertex("Bob");
-            //myGraph.AddVertex("Carl");
-
-
-
-            //myGraph.AddEdge("Alice", "Carl", 2019);
-            //myGraph.AddEdge("Alice", "Alice");
-
-            //myGraph.PrintVertices();
-            //Console.WriteLine();
-            //myGraph.PrintEdges2();
-
-
-
-            //myGraph.RemoveVertex("Carl");
-
-
-            //myGraph.PrintVertices();
-            //Console.WriteLine();
-            //myGraph.PrintEdges2();
-
-
-            // 
-            Graph_AdjacencyList<string> myALGraph = new Graph_AdjacencyList<string>();
-
-            myALGraph.AddVertex("Alice");
-            myALGraph.AddVertex("Bob");
-            //myGraph.AddVertex("Carl");
-
-
-            myALGraph.AddEdge("Alice", "Bob");
-            //myALGraph.AddEdge( Alice", "Bob");
-            //myGraph.AddEdge("Alice", "Alice");
-
-            myALGraph.PrintVertices();
-            Console.WriteLine();
-            //myGraph.PrintEdges2();
-
-
-
-            //myGraph.RemoveVertex("Carl");
-
-
-            //myGraph.PrintVertices();
-            //Console.WriteLine();
-            //myGraph.PrintEdges2();
+            // Build an undirected and unweighted graph.
+            GraphBuilder.UndirectedUnweighted();
         }
     }
 }
