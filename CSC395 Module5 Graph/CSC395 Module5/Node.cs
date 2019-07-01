@@ -5,8 +5,8 @@ using System.Collections.Generic;
 namespace CSC395_Module5
 {
     /// <summary>
-    /// To build a Graph class we need to build a node class to
-    /// store the nodes of a graph. To store the adjacent neighbors we need a list in each node.
+    /// To build a Graph we need to build a node class to
+    /// store the contents of a node. To store the adjacent neighbors we need a list in each node.
     /// Example. The Alice node stores a list of 
     /// </summary>
     public class Node<T> //: IEnumerable<T>
