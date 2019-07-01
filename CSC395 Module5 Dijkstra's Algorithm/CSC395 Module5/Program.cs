@@ -11,10 +11,10 @@ namespace CSC395_Module5
         static void Main(string[] args)
         {
             // Undirected and unweighted edges
-            GraphBuilder.UndirectedUnweighted();
+            //GraphBuilder.UndirectedUnweighted();
 
             // Directed and unweighted Graph
-            GraphBuilder.DirectedUnweighted();
+            //GraphBuilder.DirectedUnweighted();
 
             // Graph and SPF
             GraphBuilder.Dijkstra();

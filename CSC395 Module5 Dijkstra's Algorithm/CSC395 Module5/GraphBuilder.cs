@@ -88,36 +88,6 @@ namespace CSC395_Module5
             graph.AddEdge(n8, n5, 3);
             List<Edge<int>> path = graph.GetShortestPathDijkstra(n1, n5);
             path.ForEach(e => Console.WriteLine(e));
-        }
-
-        //Graph myGraph = new Graph();
-
-        //myGraph.AddVertex("Alice");
-        //myGraph.AddVertex("Bob");
-        //myGraph.AddVertex("Carl");
-
-
-
-        //myGraph.AddEdge("Alice", "Carl", 2019);
-        //myGraph.AddEdge("Alice", "Alice");
-
-        //myGraph.PrintVertices();
-        //Console.WriteLine();
-        //myGraph.PrintEdges2();
-
-
-
-        //myGraph.RemoveVertex("Carl");
-
-
-        //myGraph.PrintVertices();
-        //Console.WriteLine();
-        //myGraph.PrintEdges2();
-
-        public GraphBuilder()
-        {
-        }
-
-        
+        }  
     }
 }
