@@ -31,7 +31,7 @@ namespace CSC395_Module5
         // use the ToString method.
         public override string ToString()
         {
-            return $"Node with an Index {Index}: {Data}, neighbors {Neighbors.Count}";
+            return $"Index {Index}: {Data} Node is connected to {Neighbors.Count} neighbors.";
         }
 
         // To identify if the nodes has been visited, 

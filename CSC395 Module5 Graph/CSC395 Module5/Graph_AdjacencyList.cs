@@ -57,6 +57,11 @@ namespace CSC395_Module5
             }
         }
 
+        /// <summary>
+        /// To add a vertex to the graph, pass the value of type T that will be stored.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public Node<T> AddVertex(T value)
         {
             Node<T> node = new Node<T>() { Data = value };

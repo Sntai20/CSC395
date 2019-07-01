@@ -27,17 +27,17 @@ namespace CSC395_Module5
         internal static void UndirectedUnweighted()
         {
             // To create a Unweighted, undirected graph, pass false, false parameters.
-            Graph_AdjacencyList<int> graph = new Graph_AdjacencyList<int>(false, false);
+            Graph_AdjacencyList<String> graph = new Graph_AdjacencyList<String>(false, false);
 
             // To add Verticies, specify a node with a label and index number.
-            Node<int> Alice = graph.AddVertex(1);
-            Node<int> Bob = graph.AddVertex(2);
-            Node<int> Carl = graph.AddVertex(3);
-            Node<int> Antonio = graph.AddVertex(4);
-            Node<int> Ann = graph.AddVertex(5);
-            Node<int> Terrence = graph.AddVertex(6);
-            Node<int> Alex = graph.AddVertex(7);
-            Node<int> Robert = graph.AddVertex(8);
+            Node<String> Alice = graph.AddVertex("Alice");
+            Node<String> Bob = graph.AddVertex("Bob");
+            Node<String> Carl = graph.AddVertex("Carl");
+            Node<String> Antonio = graph.AddVertex("Antonio");
+            Node<String> Ann = graph.AddVertex("Ann");
+            Node<String> Terrence = graph.AddVertex("Terrence");
+            Node<String> Alex = graph.AddVertex("Alex");
+            Node<String> Robert = graph.AddVertex("Robert");
 
             // To add connections, specify the from and to
             // labels of the connecting nodes.
@@ -52,7 +52,7 @@ namespace CSC395_Module5
             graph.AddEdge(Terrence, Alex);
             graph.AddEdge(Alex, Robert);
 
-            // To print the edges
+            // To print the verticies
             Console.WriteLine(Alice.ToString());
             Console.WriteLine(Bob.ToString());
             Console.WriteLine(Carl.ToString());
@@ -62,7 +62,17 @@ namespace CSC395_Module5
             Console.WriteLine(Alex.ToString());
             Console.WriteLine(Robert.ToString());
 
-            // To print the verticies
+            // To print the edges
+            //Console.WriteLine(graph.GetEdges());
+
+            Console.WriteLine("The index values for Antonio's neighbors are: ");
+            foreach (var neighbor in Antonio.Neighbors)
+            {
+                
+                Console.Write(neighbor.Index.ToString() + ", ");
+                //Console.WriteLine(graph.GetEdges());
+            }
+                
 
         }
     }
